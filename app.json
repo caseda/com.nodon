@@ -1,0 +1,149 @@
+{
+	"id": "com.nodon",
+	"name": {
+		"en": "NodOn"
+	},
+	"version": "0.1.0",
+	"compatibility": ">=0.9.2",
+	"description": {
+		"en": "NodOn devices for Homey"
+	},
+	"category": [
+		"appliances",
+		"lights",
+		"climate",
+		"tools"
+	],
+	"images": {
+		"large": "/assets/images/large.png",
+		"small": "/assets/images/small.png"
+	},
+	"author": {
+		"name": "R. Mengers",
+		"email": "caseda08@hotmail.com"
+	},
+	"flow": {
+		"triggers": [
+			{
+				"id": "OCTAN_REMOTE",
+				"args": [
+					{
+						"name": "button",
+						"type": "dropdown",
+						"values": [
+							{
+								"id": "1",
+								"label": {
+									"en": "Button 1 ( ● )"
+								}
+							},
+							{
+								"id": "2",
+								"label": {
+									"en": "Button 2 ( + )"
+								}
+							},
+							{
+								"id": "3",
+								"label": {
+									"en": "Button 3 ( ◯ )"
+								}
+							},
+							{
+								"id": "4",
+								"label": {
+									"en": "Button 4 ( - )"
+								}
+							}
+						]
+					},
+					{
+						"name": "scene",
+						"type": "dropdown",
+						"filter": "driver_id=OCTAN"
+						"values": [
+							{
+								"id": "Key Pressed 1 time",
+								"label": {
+									"en": "Pressed 1x",
+									"nl": "1x Gedrukt"
+								}
+							},
+							{
+								"id": "Key Pressed 2 times",
+								"label": {
+									"en": "Pressed 2x",
+									"nl": "2x Gedrukt"
+								}
+							},
+							{
+								"id": "Key Held Down",
+								"label": {
+									"en": "Held Down (triggers until released)",
+									"nl": "Ingehouden (triggerd tot los laat)"
+								}
+							},
+							{
+								"id": "Key Released",
+								"label": {
+									"en": "Key Released",
+									"nl": "Losgelaten"
+								}
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	"drivers": [
+		{
+			"id": "OCTAN",
+			"name": {
+				"en": "NodOn Octan Remote",
+				"nl": "NodOn Octan Afstandsbediening"
+			},
+			"zwave": {
+				"manufacturerId": 357,
+				"productTypeId": 2,
+				"productId": 1,
+				"learnmode": {
+					"image": "/drivers/OCTAN/assets/learnmode.svg",
+					"instruction": {
+						"en": "Hold button 1 ( ● ) and button 2 ( + ) pressed until LED starts blinking.\nThen tap button 1 ( ● ).",
+						"nl": "Houd knop 1 ( ● ) en knop 2 ( + ) in tot de led gaat knipperen\nDruk dan kort op knop 1 ( ● )."
+					}
+				},
+				"associationGroups": [
+					1
+				]
+			},
+			"class": "other",
+			"capabilities": [
+			],
+			"images": {
+				"large": "/drivers/OCTAN/assets/images/large.png",
+				"small": "/drivers/OCTAN/assets/images/small.png"
+			},
+			"settings": [
+				{
+					"id": "dimming_step_auto",
+					"type": "number",
+					"label": {
+						"en": "The percentage of a dimming step at automatic control",
+						"nl": "Percentage van dim stap bij automatische besturing"
+					},
+					"value": 1,
+					"attr": {
+						"min": 1,
+						"max": 99
+					},
+					"hint": {
+						"en": "The percentage (1-99) of a dimming step at automatic control.",
+						"nl": "Het percentage (1-99) per dim stap bij automatische besturing."
+					}
+				}
+			]
+		}
+	]
+}

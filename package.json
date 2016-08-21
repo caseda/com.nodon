@@ -12,9 +12,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/athombv/com.fibaro.git"
+    "url": "git+https://github.com/caseda/com.nodon"
   },
-  "author": "",
+  "author": "R. Mengers",
   "license": "ISC",
-  "homepage": "#readme"
+  "homepage": "https://github.com/caseda/com.nodon#readme"
 }

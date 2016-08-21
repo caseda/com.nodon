@@ -25,8 +25,17 @@
 	"flow": {
 		"triggers": [
 			{
-				"id": "OCTAN_REMOTE",
+				"id": "octan_remote",
+				"title": {
+					"en": "Octan Remote",
+					"nl": "Octan Afstandbediening"
+				},
 				"args": [
+					{
+						"name": "remote",
+						"type": "device",
+						"filter": "driver_id=OCTAN"
+					},
 					{
 						"name": "button",
 						"type": "dropdown",
@@ -34,25 +43,29 @@
 							{
 								"id": "1",
 								"label": {
-									"en": "Button 1 ( ● )"
+									"en": "Button 1 ( ● )",
+									"nl": "Knop 1 ( ● )"
 								}
 							},
 							{
 								"id": "2",
 								"label": {
-									"en": "Button 2 ( + )"
+									"en": "Button 2 ( + )",
+									"nl": "Knop 2 ( + )"
 								}
 							},
 							{
 								"id": "3",
 								"label": {
-									"en": "Button 3 ( ◯ )"
+									"en": "Button 3 ( ◯ )",
+									"nl": "Knop 3 ( ◯ )"
 								}
 							},
 							{
 								"id": "4",
 								"label": {
-									"en": "Button 4 ( - )"
+									"en": "Button 4 ( - )",
+									"nl": "Knop 4 ( - )"
 								}
 							}
 						]
@@ -60,7 +73,6 @@
 					{
 						"name": "scene",
 						"type": "dropdown",
-						"filter": "driver_id=OCTAN"
 						"values": [
 							{
 								"id": "Key Pressed 1 time",
@@ -120,6 +132,7 @@
 			},
 			"class": "other",
 			"capabilities": [
+				"measure_battery"
 			],
 			"images": {
 				"large": "/drivers/OCTAN/assets/images/large.png",
@@ -127,21 +140,47 @@
 			},
 			"settings": [
 				{
-					"id": "dimming_step_auto",
-					"type": "number",
+					"id": "led",
+					"type": "dropdown",
 					"label": {
-						"en": "The percentage of a dimming step at automatic control",
-						"nl": "Percentage van dim stap bij automatische besturing"
+						"en": "LED behaviour",
+						"nl": "Gedrag LED"
 					},
-					"value": 1,
-					"attr": {
-						"min": 1,
-						"max": 99
-					},
+					"value": "0",
 					"hint": {
-						"en": "The percentage (1-99) of a dimming step at automatic control.",
-						"nl": "Het percentage (1-99) per dim stap bij automatische besturing."
-					}
+						"en": "Control how the LED behaves when used.",
+						"nl": "Verander het gedrag van de led bij gebruik."
+					},
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "No LED",
+								"nl": "Geen LED"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Flash blue on button press",
+								"nl": "Knipper blauw met drukken knop"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "Blinking to confirm command",
+								"nl": "Knippert bij acceptatie commando"
+							}
+						},
+						{
+							"id": "3",
+							"label": {
+								"en": "Both options above",
+								"nl": "Beide opties hier boven"
+							}
+						}
+					]
 				}
 			]
 		}

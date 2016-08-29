@@ -32,10 +32,18 @@ module.exports.on('initNode', function( token ){
 	if( node ) {
 		node.instance.CommandClass['COMMAND_CLASS_CENTRAL_SCENE'].on('report', function( command, report ){
 			var remote_value = {
-				"button": report['Scene Number'],
+				"button": report['Scene Number'].toString(),
 				"scene": report.Properties1['Key Attributes']
 			};
 			Homey.manager('flow').triggerDevice('octan_remote', null, remote_value, node.device_data);
 		});
 	}
+});
+
+Homey.manager('flow').on('trigger.octan_remote', function( callback, args, state ) {
+	if(state.button === args.button && state.scene === args.scene) {
+		callback(null, true);
+		return;
+	}
+	callback(null, false);
 });

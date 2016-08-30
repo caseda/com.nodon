@@ -34,7 +34,7 @@
 					{
 						"name": "remote",
 						"type": "device",
-						"filter": "driver_id=OCTAN"
+						"filter": "driver_id=octan_remote"
 					},
 					{
 						"name": "button",

@@ -105,6 +105,88 @@
 						]
 					}
 				]
+			},
+			{
+				"id": "soft_remote",
+				"title": {
+					"en": "Soft Remote",
+					"nl": "Soft Afstandbediening"
+				},
+				"args": [
+					{
+						"name": "remote",
+						"type": "device",
+						"filter": "driver_id=soft_remote"
+					},
+					{
+						"name": "button",
+						"type": "dropdown",
+						"values": [
+							{
+								"id": "1",
+								"label": {
+									"en": "Button 1 ( ● )",
+									"nl": "Knop 1 ( ● )"
+								}
+							},
+							{
+								"id": "2",
+								"label": {
+									"en": "Button 2 ( + )",
+									"nl": "Knop 2 ( + )"
+								}
+							},
+							{
+								"id": "3",
+								"label": {
+									"en": "Button 3 ( ◯ )",
+									"nl": "Knop 3 ( ◯ )"
+								}
+							},
+							{
+								"id": "4",
+								"label": {
+									"en": "Button 4 ( - )",
+									"nl": "Knop 4 ( - )"
+								}
+							}
+						]
+					},
+					{
+						"name": "scene",
+						"type": "dropdown",
+						"values": [
+							{
+								"id": "Key Pressed 1 time",
+								"label": {
+									"en": "Pressed 1x",
+									"nl": "1x Gedrukt"
+								}
+							},
+							{
+								"id": "Key Pressed 2 times",
+								"label": {
+									"en": "Pressed 2x",
+									"nl": "2x Gedrukt"
+								}
+							},
+							{
+								"id": "Key Held Down",
+								"label": {
+									"en": "Held Down (triggers until released)",
+									"nl": "Ingehouden (triggerd tot los laat)"
+								}
+							},
+							{
+								"id": "Key Released",
+								"label": {
+									"en": "Key Released",
+									"nl": "Losgelaten"
+								}
+							}
+						]
+					}
+				]
 			}
 		]
 	},
@@ -137,6 +219,81 @@
 			"images": {
 				"large": "/drivers/OCTAN/assets/images/large.png",
 				"small": "/drivers/OCTAN/assets/images/small.png"
+			},
+			"settings": [
+				{
+					"id": "led",
+					"type": "dropdown",
+					"label": {
+						"en": "LED behaviour",
+						"nl": "Gedrag LED"
+					},
+					"value": "0",
+					"hint": {
+						"en": "Control how the LED behaves when used.",
+						"nl": "Verander het gedrag van de led bij gebruik."
+					},
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "No LED",
+								"nl": "Geen LED"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Flash blue on button press",
+								"nl": "Knipper blauw met drukken knop"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "Blinking to confirm command",
+								"nl": "Knippert bij acceptatie commando"
+							}
+						},
+						{
+							"id": "3",
+							"label": {
+								"en": "Both options above",
+								"nl": "Beide opties hier boven"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "soft_remote",
+			"name": {
+				"en": "NodOn Soft Remote",
+				"nl": "NodOn Soft Afstandsbediening"
+			},
+			"zwave": {
+				"manufacturerId": 357,
+				"productTypeId": 2,
+				"productId": 2,
+				"learnmode": {
+					"image": "/drivers/soft_remote/assets/learnmode.svg",
+					"instruction": {
+						"en": "Hold button 1 ( ● ) and button 2 ( + ) pressed until LED starts blinking.\nThen tap button 1 ( ● ).",
+						"nl": "Houd knop 1 ( ● ) en knop 2 ( + ) in tot de led gaat knipperen\nDruk dan kort op knop 1 ( ● )."
+					}
+				},
+				"associationGroups": [
+					1
+				]
+			},
+			"class": "other",
+			"capabilities": [
+				"measure_battery"
+			],
+			"images": {
+				"large": "/drivers/soft_remote/assets/images/large.png",
+				"small": "/drivers/soft_remote/assets/images/small.png"
 			},
 			"settings": [
 				{

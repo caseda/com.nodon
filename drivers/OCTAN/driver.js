@@ -31,11 +31,13 @@ module.exports.on('initNode', function( token ){
 	var node = module.exports.nodes[ token ];
 	if( node ) {
 		node.instance.CommandClass['COMMAND_CLASS_CENTRAL_SCENE'].on('report', function( command, report ){
-			var remote_value = {
-				"button": report['Scene Number'].toString(),
-				"scene": report.Properties1['Key Attributes']
-			};
-			Homey.manager('flow').triggerDevice('octan_remote', null, remote_value, node.device_data);
+			if( command.name === 'CENTRAL_SCENE_NOTIFICATION' ) {
+				var remote_value = {
+					"button": report['Scene Number'].toString(),
+					"scene": report.Properties1['Key Attributes']
+				};
+				Homey.manager('flow').triggerDevice('octan_remote', null, remote_value, node.device_data);
+			}
 		});
 	}
 });

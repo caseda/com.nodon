@@ -192,7 +192,7 @@
 	},
 	"drivers": [
 		{
-			"id": "OCTAN",
+			"id": "octan_remote",
 			"name": {
 				"en": "NodOn Octan Remote",
 				"nl": "NodOn Octan Afstandsbediening"
@@ -202,7 +202,7 @@
 				"productTypeId": 2,
 				"productId": 1,
 				"learnmode": {
-					"image": "/drivers/OCTAN/assets/learnmode.svg",
+					"image": "/drivers/octan_remote/assets/learnmode.svg",
 					"instruction": {
 						"en": "Hold button 1 ( ● ) and button 2 ( + ) pressed until LED starts blinking.\nThen tap button 1 ( ● ).",
 						"nl": "Houd knop 1 ( ● ) en knop 2 ( + ) in tot de led gaat knipperen\nDruk dan kort op knop 1 ( ● )."
@@ -217,8 +217,8 @@
 				"measure_battery"
 			],
 			"images": {
-				"large": "/drivers/OCTAN/assets/images/large.png",
-				"small": "/drivers/OCTAN/assets/images/small.png"
+				"large": "/drivers/octan_remote/assets/images/large.png",
+				"small": "/drivers/octan_remote/assets/images/small.png"
 			},
 			"settings": [
 				{

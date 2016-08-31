@@ -3,10 +3,11 @@
 	"name": {
 		"en": "NodOn"
 	},
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"compatibility": ">=0.9.3",
 	"description": {
-		"en": "NodOn devices for Homey"
+		"en": "NodOn devices for Homey",
+		"nl": "NodOn apparaten voor Homey"
 	},
 	"category": [
 		"appliances",
@@ -32,7 +33,7 @@
 				},
 				"args": [
 					{
-						"name": "remote",
+						"name": "octan_remote",
 						"type": "device",
 						"filter": "driver_id=octan_remote"
 					},
@@ -114,7 +115,7 @@
 				},
 				"args": [
 					{
-						"name": "remote",
+						"name": "soft_remote",
 						"type": "device",
 						"filter": "driver_id=soft_remote"
 					},
@@ -148,6 +149,88 @@
 								"label": {
 									"en": "Button 4 ( - )",
 									"nl": "Knop 4 ( - )"
+								}
+							}
+						]
+					},
+					{
+						"name": "scene",
+						"type": "dropdown",
+						"values": [
+							{
+								"id": "Key Pressed 1 time",
+								"label": {
+									"en": "Pressed 1x",
+									"nl": "1x Gedrukt"
+								}
+							},
+							{
+								"id": "Key Pressed 2 times",
+								"label": {
+									"en": "Pressed 2x",
+									"nl": "2x Gedrukt"
+								}
+							},
+							{
+								"id": "Key Held Down",
+								"label": {
+									"en": "Held Down (triggers until released)",
+									"nl": "Ingehouden (triggerd tot los laat)"
+								}
+							},
+							{
+								"id": "Key Released",
+								"label": {
+									"en": "Key Released",
+									"nl": "Losgelaten"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "wall_switch",
+				"title": {
+					"en": "Wall Switch",
+					"nl": "Muur Schakelaar"
+				},
+				"args": [
+					{
+						"name": "wall_switch",
+						"type": "device",
+						"filter": "driver_id=wall_switch"
+					},
+					{
+						"name": "button",
+						"type": "dropdown",
+						"values": [
+							{
+								"id": "1",
+								"label": {
+									"en": "Button 1 ( Upper-Left )",
+									"nl": "Knop 1 ( Links-Boven )"
+								}
+							},
+							{
+								"id": "2",
+								"label": {
+									"en": "Button 2 ( Upper-Right )",
+									"nl": "Knop 2 ( Rechts-Boven )"
+								}
+							},
+							{
+								"id": "3",
+								"label": {
+									"en": "Button 3 ( Lower-Left )",
+									"nl": "Knop 3 ( Links-Onder )"
+								}
+							},
+							{
+								"id": "4",
+								"label": {
+									"en": "Button 4 ( Lower-Right )",
+									"nl": "Knop 4 ( Rechts-Onder )"
 								}
 							}
 						]
@@ -294,6 +377,81 @@
 			"images": {
 				"large": "/drivers/soft_remote/assets/images/large.png",
 				"small": "/drivers/soft_remote/assets/images/small.png"
+			},
+			"settings": [
+				{
+					"id": "led",
+					"type": "dropdown",
+					"label": {
+						"en": "LED behaviour",
+						"nl": "Gedrag LED"
+					},
+					"value": "0",
+					"hint": {
+						"en": "Control how the LED behaves when used.",
+						"nl": "Verander het gedrag van de led bij gebruik."
+					},
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "No LED",
+								"nl": "Geen LED"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Flash blue on button press",
+								"nl": "Knipper blauw met drukken knop"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "Blinking to confirm command",
+								"nl": "Knippert bij acceptatie commando"
+							}
+						},
+						{
+							"id": "3",
+							"label": {
+								"en": "Both options above",
+								"nl": "Beide opties hier boven"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "wall_switch",
+			"name": {
+				"en": "NodOn Wall Switch",
+				"nl": "NodOn Muur Schakelaar"
+			},
+			"zwave": {
+				"manufacturerId": 357,
+				"productTypeId": 2,
+				"productId": 3,
+				"learnmode": {
+					"image": "/drivers/wall_switch/assets/learnmode.svg",
+					"instruction": {
+						"en": "Hold button 1 ( Upper-Left ) and button 2 ( Upper-Right ) pressed until LED starts blinking.\nThen tap button 1 ( Upper-Left ).",
+						"nl": "Houd knop 1 ( Links-Boven ) en knop 2 ( Rechts-Boven ) in tot de led gaat knipperen\nDruk dan kort op knop 1 ( Links-Boven )."
+					}
+				},
+				"associationGroups": [
+					1
+				]
+			},
+			"class": "other",
+			"capabilities": [
+				"measure_battery"
+			],
+			"images": {
+				"large": "/drivers/wall_switch/assets/images/large.png",
+				"small": "/drivers/wall_switch/assets/images/small.png"
 			},
 			"settings": [
 				{

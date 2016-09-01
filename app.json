@@ -299,6 +299,21 @@
 			"capabilities": [
 				"measure_battery"
 			],
+            "mobile": {
+                "components": [
+                    {
+                        "capabilities": [
+                        ],
+                        "id": "icon"
+                    },
+                    {
+                        "capabilities": [
+                            "measure_battery"
+                        ],
+                        "id": "battery"
+                    }
+                ]
+            },
 			"images": {
 				"large": "/drivers/octan_remote/assets/images/large.png",
 				"small": "/drivers/octan_remote/assets/images/small.png"
@@ -374,6 +389,21 @@
 			"capabilities": [
 				"measure_battery"
 			],
+            "mobile": {
+                "components": [
+                    {
+                        "capabilities": [
+                        ],
+                        "id": "icon"
+                    },
+                    {
+                        "capabilities": [
+                            "measure_battery"
+                        ],
+                        "id": "battery"
+                    }
+                ]
+            },
 			"images": {
 				"large": "/drivers/soft_remote/assets/images/large.png",
 				"small": "/drivers/soft_remote/assets/images/small.png"
@@ -449,6 +479,21 @@
 			"capabilities": [
 				"measure_battery"
 			],
+            "mobile": {
+                "components": [
+                    {
+                        "capabilities": [
+                        ],
+                        "id": "icon"
+                    },
+                    {
+                        "capabilities": [
+                            "measure_battery"
+                        ],
+                        "id": "battery"
+                    }
+                ]
+            },
 			"images": {
 				"large": "/drivers/wall_switch/assets/images/large.png",
 				"small": "/drivers/wall_switch/assets/images/small.png"

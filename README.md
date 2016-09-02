@@ -19,7 +19,7 @@ This app adds support for NodOn devices in Homey.
 
 ## Change Log:
 **1.0.1**  
-add support:
-Wall Switch
-
+add support:  
+Wall Switch  
+  
 Add mobile cards for showing battery level

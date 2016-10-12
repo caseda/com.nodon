@@ -18,6 +18,9 @@ This app adds support for NodOn devices in Homey.
 * Dutch (Nederlands)
 
 ## Change Log:
+**1.0.2**
+Update z-wave driver to latest (1.0.2)  
+
 **1.0.1**
 add support:  
 Wall Switch  

@@ -3,7 +3,7 @@
 	"name": {
 		"en": "NodOn"
 	},
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"compatibility": ">=0.9.3",
 	"description": {
 		"en": "NodOn devices for Homey",

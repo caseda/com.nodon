@@ -293,7 +293,8 @@
 				},
 				"associationGroups": [
 					1
-				]
+				],
+				"wakeUpInterval": 7200
 			},
 			"class": "other",
 			"capabilities": [
@@ -383,7 +384,8 @@
 				},
 				"associationGroups": [
 					1
-				]
+				],
+				"wakeUpInterval": 7200
 			},
 			"class": "other",
 			"capabilities": [
@@ -473,7 +475,8 @@
 				},
 				"associationGroups": [
 					1
-				]
+				],
+				"wakeUpInterval": 7200
 			},
 			"class": "other",
 			"capabilities": [

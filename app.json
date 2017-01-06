@@ -3,8 +3,8 @@
 	"name": {
 		"en": "NodOn"
 	},
-	"version": "1.0.2",
-	"compatibility": ">=0.9.3",
+	"version": "1.0.3",
+	"compatibility": ">=1.0.5",
 	"description": {
 		"en": "NodOn devices for Homey",
 		"nl": "NodOn apparaten voor Homey"
@@ -288,33 +288,62 @@
 					"image": "/drivers/octan_remote/assets/learnmode.svg",
 					"instruction": {
 						"en": "Hold button 1 ( ● ) and button 2 ( + ) pressed until LED starts blinking.\nThen tap button 1 ( ● ).",
-						"nl": "Houd knop 1 ( ● ) en knop 2 ( + ) in tot de led gaat knipperen\nDruk dan kort op knop 1 ( ● )."
+						"nl": "Houd knop 1 ( ● ) en knop 2 ( + ) ingedrukt tot de led gaat knipperen\nDruk dan kort op knop 1 ( ● )."
 					}
 				},
 				"associationGroups": [
 					1
 				],
-				"wakeUpInterval": 7200
+				"associationGroupsOptions": {
+					"1": {
+						"hint": {
+							"en": "This is the controller group, it is not recommended to change this.",
+							"nl": "Dit is de controller groep, het is niet aangeraden dit te veranderen."
+						}
+					},
+					"2": {
+						"hint": {
+							"en": "These devices will respond to button 1 ( ● ), if the expert parameter \"1,1,1;\" is added.\n!! However, the left buttons will completely stop working in homey !!",
+							"nl": "Deze apparaten zullen reageren op knop 1 ( ● ), als expert parameters \"1,1,1;\" zijn toegevoegd.\n!! Pasop, de linker knoppen zullen volledige stoppen met reageren in homey. !!"
+						}
+					},
+					"3": {
+						"hint": {
+							"en": "These devices will respond to button 2 ( + ), if the expert parameter \"2,1,1;\" is added.\n!! However, the right buttons will completely stop working in homey !!",
+							"nl": "Deze apparaten zullen reageren op knop 2 ( + ), als expert parameters \"2,1,1;\" zijn toegevoegd.\n!! Pasop, de rechter knoppen zullen volledige stoppen met reageren in homey. !!"
+						}
+					},
+					"4": {
+						"hint": {
+							"en": "These devices will respond to button 3 ( ◯ ), if the expert parameter \"1,1,1;\" is added.\n!! However, the left buttons will completely stop working in homey !!",
+							"nl": "Deze apparaten zullen reageren op knop 3 ( ◯ ), als expert parameters \"1,1,1;\" zijn toegevoegd.\n!! Pasop, de linker knoppen zullen volledige stoppen met reageren in homey. !!"
+						}
+					},
+					"5": {
+						"hint": {
+							"en": "These devices will respond to button 4 ( - ), if the expert parameter \"2,1,1;\" is added.\n!! However, the right buttons will completely stop working in homey !!",
+							"nl": "Deze apparaten zullen reageren op knop 4 ( - ), als expert parameters \"2,1,1;\" zijn toegevoegd.\n!! Pasop, de rechter knoppen zullen volledige stoppen met reageren in homey. !!"
+						}
+					},
+					"6": {
+						"hint": {
+							"en": "These devices will be dimmed with the buttons 1 ( ● ) & 3 ( ◯ ), if the expert parameter \"1,1,2;\" is added.\n!! However, the left buttons will completely stop working in homey !!",
+							"nl": "Deze apparaten zullen dimmen met de op knoppen 1 ( ● ) & 3 ( ◯ ), als expert parameters \"1,1,2;\" zijn toegevoegd.\n!! Pasop, de linker knoppen zullen volledige stoppen met reageren in homey. !!"
+						}
+					},
+					"7": {
+						"hint": {
+							"en": "These devices will be dimmed with the buttons 2 ( + ) & 4 ( - ), if the expert parameter \"2,1,2;\" is added.\n!! However, the right buttons will completely stop working in homey !!",
+							"nl": "Deze apparaten zullen dimmen met de op knoppen 2 ( + ) & 4 ( - ), als expert parameters \"2,1,2;\" zijn toegevoegd.\n!! Pasop, de rechter knoppen zullen volledige stoppen met reageren in homey. !!"
+						}
+					}
+				},
+				"wakeUpInterval": 86400
 			},
-			"class": "other",
+			"class": "sensor",
 			"capabilities": [
 				"measure_battery"
 			],
-            "mobile": {
-                "components": [
-                    {
-                        "capabilities": [
-                        ],
-                        "id": "icon"
-                    },
-                    {
-                        "capabilities": [
-                            "measure_battery"
-                        ],
-                        "id": "battery"
-                    }
-                ]
-            },
 			"images": {
 				"large": "/drivers/octan_remote/assets/images/large.png",
 				"small": "/drivers/octan_remote/assets/images/small.png"
@@ -379,33 +408,62 @@
 					"image": "/drivers/soft_remote/assets/learnmode.svg",
 					"instruction": {
 						"en": "Hold button 1 ( ● ) and button 2 ( + ) pressed until LED starts blinking.\nThen tap button 1 ( ● ).",
-						"nl": "Houd knop 1 ( ● ) en knop 2 ( + ) in tot de led gaat knipperen\nDruk dan kort op knop 1 ( ● )."
+						"nl": "Houd knop 1 ( ● ) en knop 2 ( + ) ingedrukt tot de led gaat knipperen\nDruk dan kort op knop 1 ( ● )."
 					}
 				},
 				"associationGroups": [
 					1
 				],
-				"wakeUpInterval": 7200
+				"associationGroupsOptions": {
+					"1": {
+						"hint": {
+							"en": "This is the controller group, it is not recommended to change this.",
+							"nl": "Dit is de controller groep, het is niet aangeraden dit te veranderen."
+						}
+					},
+					"2": {
+						"hint": {
+							"en": "These devices will respond to button 1 ( ● ), if the expert parameter \"1,1,1;\" is added.\n!! However, the left buttons will completely stop working in homey !!",
+							"nl": "Deze apparaten zullen reageren op knop 1 ( ● ), als expert parameters \"1,1,1;\" zijn toegevoegd.\n!! Pasop, de linker knoppen zullen volledige stoppen met reageren in homey. !!"
+						}
+					},
+					"3": {
+						"hint": {
+							"en": "These devices will respond to button 2 ( + ), if the expert parameter \"2,1,1;\" is added.\n!! However, the right buttons will completely stop working in homey !!",
+							"nl": "Deze apparaten zullen reageren op knop 2 ( + ), als expert parameters \"2,1,1;\" zijn toegevoegd.\n!! Pasop, de rechter knoppen zullen volledige stoppen met reageren in homey. !!"
+						}
+					},
+					"4": {
+						"hint": {
+							"en": "These devices will respond to button 3 ( ◯ ), if the expert parameter \"1,1,1;\" is added.\n!! However, the left buttons will completely stop working in homey !!",
+							"nl": "Deze apparaten zullen reageren op knop 3 ( ◯ ), als expert parameters \"1,1,1;\" zijn toegevoegd.\n!! Pasop, de linker knoppen zullen volledige stoppen met reageren in homey. !!"
+						}
+					},
+					"5": {
+						"hint": {
+							"en": "These devices will respond to button 4 ( - ), if the expert parameter \"2,1,1;\" is added.\n!! However, the right buttons will completely stop working in homey !!",
+							"nl": "Deze apparaten zullen reageren op knop 4 ( - ), als expert parameters \"2,1,1;\" zijn toegevoegd.\n!! Pasop, de rechter knoppen zullen volledige stoppen met reageren in homey. !!"
+						}
+					},
+					"6": {
+						"hint": {
+							"en": "These devices will be dimmed with the buttons 1 ( ● ) & 3 ( ◯ ), if the expert parameter \"1,1,2;\" is added.\n!! However, the left buttons will completely stop working in homey !!",
+							"nl": "Deze apparaten zullen dimmen met de op knoppen 1 ( ● ) & 3 ( ◯ ), als expert parameters \"1,1,2;\" zijn toegevoegd.\n!! Pasop, de linker knoppen zullen volledige stoppen met reageren in homey. !!"
+						}
+					},
+					"7": {
+						"hint": {
+							"en": "These devices will be dimmed with the buttons 2 ( + ) & 4 ( - ), if the expert parameter \"2,1,2;\" is added.\n!! However, the right buttons will completely stop working in homey !!",
+							"nl": "Deze apparaten zullen dimmen met de op knoppen 2 ( + ) & 4 ( - ), als expert parameters \"2,1,2;\" zijn toegevoegd.\n!! Pasop, de rechter knoppen zullen volledige stoppen met reageren in homey. !!"
+						}
+					}
+				},
+				"wakeUpInterval": 86400
 			},
-			"class": "other",
+			"class": "sensor",
 			"capabilities": [
 				"measure_battery"
 			],
-            "mobile": {
-                "components": [
-                    {
-                        "capabilities": [
-                        ],
-                        "id": "icon"
-                    },
-                    {
-                        "capabilities": [
-                            "measure_battery"
-                        ],
-                        "id": "battery"
-                    }
-                ]
-            },
 			"images": {
 				"large": "/drivers/soft_remote/assets/images/large.png",
 				"small": "/drivers/soft_remote/assets/images/small.png"
@@ -470,33 +528,62 @@
 					"image": "/drivers/wall_switch/assets/learnmode.svg",
 					"instruction": {
 						"en": "Hold button 1 ( Upper-Left ) and button 2 ( Upper-Right ) pressed until LED starts blinking.\nThen tap button 1 ( Upper-Left ).",
-						"nl": "Houd knop 1 ( Links-Boven ) en knop 2 ( Rechts-Boven ) in tot de led gaat knipperen\nDruk dan kort op knop 1 ( Links-Boven )."
+						"nl": "Houd knop 1 ( Links-Boven ) en knop 2 ( Rechts-Boven ) ingedrukt tot de led gaat knipperen\nDruk dan kort op knop 1 ( Links-Boven )."
 					}
 				},
 				"associationGroups": [
 					1
 				],
-				"wakeUpInterval": 7200
+				"associationGroupsOptions": {
+					"1": {
+						"hint": {
+							"en": "This is the controller group, it is not recommended to change this.",
+							"nl": "Dit is de controller groep, het is niet aangeraden dit te veranderen."
+						}
+					},
+					"2": {
+						"hint": {
+							"en": "These devices will respond to button 1 ( Upper-Left ), if the expert parameter \"1,1,1;\" is added.\n!! However, the left switch will completely stop working in homey !!",
+							"nl": "Deze apparaten zullen reageren op knop 1 ( Links-Boven ), als expert parameters \"1,1,1;\" zijn toegevoegd.\n!! Pasop, de linker schakelaar zullen volledige stoppen met reageren in homey. !!"
+						}
+					},
+					"3": {
+						"hint": {
+							"en": "These devices will respond to button 2 ( Upper-Right ), if the expert parameter \"2,1,1;\" is added.\n!! However, the right switch will completely stop working in homey !!",
+							"nl": "Deze apparaten zullen reageren op knop 2 ( Rechts-Boven ), als expert parameters \"2,1,1;\" zijn toegevoegd.\n!! Pasop, de rechter schakelaar zal volledige stoppen met reageren in homey. !!"
+						}
+					},
+					"4": {
+						"hint": {
+							"en": "These devices will respond to button 3 ( Lower-Left ), if the expert parameter \"1,1,1;\" is added.\n!! However, the left switch will completely stop working in homey !!",
+							"nl": "Deze apparaten zullen reageren op knop 3 ( Links-Onder ), als expert parameters \"1,1,1;\" zijn toegevoegd.\n!! Pasop, de linker schakelaar zal volledige stoppen met reageren in homey. !!"
+						}
+					},
+					"5": {
+						"hint": {
+							"en": "These devices will respond to button 4 ( Lower-Right ), if the expert parameter \"2,1,1;\" is added.\n!! However, the right switch will completely stop working in homey !!",
+							"nl": "Deze apparaten zullen reageren op knop 4 ( Rechts-Onder ), als expert parameters \"2,1,1;\" zijn toegevoegd.\n!! Pasop, de rechter schakelaar zal volledige stoppen met reageren in homey. !!"
+						}
+					},
+					"6": {
+						"hint": {
+							"en": "These devices will be dimmed with the buttons 1 ( Upper-Left ) & 3 ( Lower-Left ), if the expert parameter \"1,1,2;\" is added.\n!! However, the left switch will completely stop working in homey !!",
+							"nl": "Deze apparaten zullen dimmen met de op knoppen 1 ( Links-Boven ) & 3 ( Links-Onder ), als expert parameters \"1,1,2;\" zijn toegevoegd.\n!! Pasop, de linker schakelaar zullen volledige stoppen met reageren in homey. !!"
+						}
+					},
+					"7": {
+						"hint": {
+							"en": "These devices will be dimmed with the buttons 2 ( Upper-Right ) & 4 ( Lower-Right ), if the expert parameter \"2,1,2;\" is added.\n!! However, the right switch will completely stop working in homey !!",
+							"nl": "Deze apparaten zullen dimmen met de op knoppen 2 ( Rechts-Boven ) & 4 ( Rechts-Onder ), als expert parameters \"2,1,2;\" zijn toegevoegd.\n!! Pasop, de rechter schakelaar zal volledige stoppen met reageren in homey. !!"
+						}
+					}
+				},
+				"wakeUpInterval": 86400
 			},
-			"class": "other",
+			"class": "sensor",
 			"capabilities": [
 				"measure_battery"
 			],
-            "mobile": {
-                "components": [
-                    {
-                        "capabilities": [
-                        ],
-                        "id": "icon"
-                    },
-                    {
-                        "capabilities": [
-                            "measure_battery"
-                        ],
-                        "id": "battery"
-                    }
-                ]
-            },
 			"images": {
 				"large": "/drivers/wall_switch/assets/images/large.png",
 				"small": "/drivers/wall_switch/assets/images/small.png"

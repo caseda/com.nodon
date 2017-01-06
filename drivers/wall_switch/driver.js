@@ -6,7 +6,6 @@ const ZwaveDriver = require('homey-zwavedriver');
 // http://nodon.fr/support/NodOn_WallSwitch_ZWave_UserGuide_EN.pdf
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
-	debug: true,
 	capabilities: {
 		'measure_battery': {
 			'getOnWakeUp': true,

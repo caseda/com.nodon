@@ -41,7 +41,8 @@ module.exports.on('initNode', token => {
 				
 				if (report &&
 				report.hasOwnProperty("Scene Number") &&
-				report.hasOwnProperty("Key Attributes")) {
+				report.hasOwnProperty("Properties1") &&
+				report.Properties1.hasOwnProperty("Key Attributes")) {
 					
 					const remote_value = {
 						"button": report['Scene Number'].toString(),

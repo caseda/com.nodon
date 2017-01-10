@@ -18,6 +18,10 @@ This app adds support for NodOn devices in Homey.
 * Dutch (Nederlands)
 
 ## Change Log:
+**1.0.4 & 1.0.5**
+Fix an issue that creeped in when updating
+Also added battery trigger cards (re-include needed for this)
+
 **1.0.3**
 Make app ES6 (ESLint) Compliant  
 Update Z-wave driver to latest (1.1.2)  

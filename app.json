@@ -3,7 +3,7 @@
 	"name": {
 		"en": "NodOn"
 	},
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"compatibility": ">=1.0.5",
 	"description": {
 		"en": "NodOn devices for Homey",
@@ -340,10 +340,24 @@
 				},
 				"wakeUpInterval": 86400
 			},
-			"class": "sensor",
+			"class": "other",
 			"capabilities": [
 				"measure_battery"
 			],
+			"mobile": {
+				"components": [
+					{
+						"capabilities": [],
+						"id": "icon"
+					},
+					{
+						"capabilities": [
+							"measure_battery"
+						],
+						"id": "battery"
+					}
+				]
+			},
 			"images": {
 				"large": "/drivers/octan_remote/assets/images/large.png",
 				"small": "/drivers/octan_remote/assets/images/small.png"
@@ -460,10 +474,24 @@
 				},
 				"wakeUpInterval": 86400
 			},
-			"class": "sensor",
+			"class": "other",
 			"capabilities": [
 				"measure_battery"
 			],
+			"mobile": {
+				"components": [
+					{
+						"capabilities": [],
+						"id": "icon"
+					},
+					{
+						"capabilities": [
+							"measure_battery"
+						],
+						"id": "battery"
+					}
+				]
+			},
 			"images": {
 				"large": "/drivers/soft_remote/assets/images/large.png",
 				"small": "/drivers/soft_remote/assets/images/small.png"
@@ -580,10 +608,24 @@
 				},
 				"wakeUpInterval": 86400
 			},
-			"class": "sensor",
+			"class": "other",
 			"capabilities": [
 				"measure_battery"
 			],
+			"mobile": {
+				"components": [
+					{
+						"capabilities": [],
+						"id": "icon"
+					},
+					{
+						"capabilities": [
+							"measure_battery"
+						],
+						"id": "battery"
+					}
+				]
+			},
 			"images": {
 				"large": "/drivers/wall_switch/assets/images/large.png",
 				"small": "/drivers/wall_switch/assets/images/small.png"

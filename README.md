@@ -5,7 +5,7 @@ This app adds support for NodOn devices in Homey.
 ## Supported Devices:
 * Octan Remote - Scene triggers for all 4 buttons.
 * Soft Remote - Scene triggers for all 4 buttons.
-* Wall Switch - Scene triggers for all 2 buttons (including both directions).
+* Wall Switch - Scene triggers for both switches (including both directions).
 
 ### Scene Triggers:
 * Single Click
@@ -17,9 +17,13 @@ This app adds support for NodOn devices in Homey.
 * English
 * Dutch (Nederlands)
 
-## Change Log:
+### Change Log:
+**1.0.6**
+Removed different wake-up interval time, needs to be 0 in homey FW v1.1.3  
+If the interval value is not 0 the save button will be disabled (grayed out)
+
 **1.0.4 & 1.0.5**
-Fix an issue that creeped in when updating
+Fix an issue that creeped in when updating  
 Also added battery trigger cards (re-include needed for this)
 
 **1.0.3**

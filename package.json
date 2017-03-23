@@ -1,7 +1,7 @@
 {
   "name": "com.nodon",
-  "version": "1.0.0",
-  "description": "This app adds support for NodOn devices in Homey",
+  "version": "1.1.0",
+  "description": "This app adds support for NodOn Z-Wave devices in Homey",
   "main": "app.js",
   "dependencies": {
     "homey-zwavedriver": "git+https://github.com/athombv/node-homey-zwavedriver.git"

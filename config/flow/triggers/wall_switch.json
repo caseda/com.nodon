@@ -1,0 +1,143 @@
+[
+  {
+    "id": "wall_switch",
+    "title": {
+      "en": "Wall Switch",
+      "nl": "Muur Schakelaar"
+    },
+    "args": [
+      {
+        "name": "wall_switch",
+        "type": "device",
+        "filter": "driver_id=wall_switch"
+      },
+      {
+        "name": "button",
+        "type": "dropdown",
+        "values": [
+          {
+            "id": "1",
+            "label": {
+              "en": "Button 1 ( Upper-Left )",
+              "nl": "Knop 1 ( Links-Boven )"
+            }
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Button 2 ( Upper-Right )",
+              "nl": "Knop 2 ( Rechts-Boven )"
+            }
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Button 3 ( Lower-Left )",
+              "nl": "Knop 3 ( Links-Onder )"
+            }
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Button 4 ( Lower-Right )",
+              "nl": "Knop 4 ( Rechts-Onder )"
+            }
+          }
+        ]
+      },
+      {
+        "name": "scene",
+        "type": "dropdown",
+        "values": [
+          {
+            "id": "Key Pressed 1 time",
+            "label": {
+              "en": "Pressed 1x",
+              "nl": "1x Gedrukt"
+            }
+          },
+          {
+            "id": "Key Pressed 2 times",
+            "label": {
+              "en": "Pressed 2x",
+              "nl": "2x Gedrukt"
+            }
+          },
+          {
+            "id": "Key Held Down",
+            "label": {
+              "en": "Held Down (triggers until released)",
+              "nl": "Ingehouden (triggerd tot los laat)"
+            }
+          },
+          {
+            "id": "Key Released",
+            "label": {
+              "en": "Key Released",
+              "nl": "Losgelaten"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "wall_switch_nonscene",
+    "title": {
+      "en": "Single/dual button mode",
+      "nl": "Enkele/dubbele knop modus"
+    },
+    "hint": {
+      "en": "This flow card will only trigger if the switches's settings are in \"Single Button Mode\" or \"Dual Button Mode\", triggers on all buttons that are in these modes",
+      "nl": "Deze flow kaart activeerd alleen als de schakelaar zijn instellingen staan op \"Enkele Knop Modus\" of \"Dubbele Knop Modus\", activeerd bij alle knoppen die in deze modus zijn"
+    },
+    "args": [
+      {
+        "name": "device",
+        "type": "device",
+        "filter": "driver_id=wall_switch"
+      },
+      {
+        "name": "value",
+        "type": "dropdown",
+        "values": [
+          {
+            "id": "on",
+            "label": {
+              "en": "On",
+              "nl": "Aan"
+            }
+          },
+          {
+            "id": "off",
+            "label": {
+              "en": "Off",
+              "nl": "Uit"
+            }
+          },
+          {
+            "id": "up",
+            "label": {
+              "en": "Start dimming up",
+              "nl": "Start omhoog dimmen"
+            }
+          },
+          {
+            "id": "down",
+            "label": {
+              "en": "Start dimming down",
+              "nl": "Start omlaag dimmen"
+            }
+          },
+          {
+            "id": "stop",
+            "label": {
+              "en": "Stop Dimming",
+              "nl": "Stop Dimmen"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

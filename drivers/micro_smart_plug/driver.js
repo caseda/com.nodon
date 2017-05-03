@@ -66,6 +66,18 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			index: 1,
 			size: 1,
 		},
+		led_indicator: (newValue, oldValue, deviceData) => {
+			const node = module.exports.nodes[deviceData.token];
+
+			if (node && typeof node.instance.CommandClass.COMMAND_CLASS_INDICATOR !== 'undefined') {
+				//Send parameter values to module
+				node.instance.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
+					"Value": (newValue) ? 1 : 0,
+				}, err => {
+					if (err) return console.error(err, false);
+				});
+			}
+		},
 		enable_group_2: {
 			index: 3,
 			size: 1,
@@ -149,7 +161,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 
 Homey.manager('flow').on('action.micro_smart_plug_reset_meter', (callback, args) => {
 	const node = module.exports.nodes[args.device.token];
-	
+
 	if (typeof node.instance.CommandClass.COMMAND_CLASS_METER !== 'undefined') {
 		node.instance.CommandClass.COMMAND_CLASS_METER.METER_RESET({}, (err, result) => {
 			if (err) return callback(err, false);

@@ -13,7 +13,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_get: 'SWITCH_BINARY_GET',
 			command_set: 'SWITCH_BINARY_SET',
 			command_set_parser: value => ({
-				'Switch Value': (value > 0) ? 'on/enable' : 'off/disable',
+				'Switch Value': (value) ? 'on/enable' : 'off/disable',
 			}),
 			command_report: 'SWITCH_BINARY_REPORT',
 			command_report_parser: report => report['Value'] === 'on/enable',
@@ -70,7 +70,6 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			const node = module.exports.nodes[deviceData.token];
 
 			if (node && typeof node.instance.CommandClass.COMMAND_CLASS_INDICATOR !== 'undefined') {
-				//Send parameter values to module
 				node.instance.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
 					"Value": (newValue) ? 1 : 0,
 				}, err => {
@@ -83,8 +82,8 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1,
 			parser: (newValue, newSettings) => {
 				let value = 0;
-				if (newValue === true) value + 1;
-				if (newSettings['enable_group_3'] === true) value + 2;
+				if (newValue === true) value += 1;
+				if (newSettings['enable_group_3'] === true) value += 2;
 
 				return new Buffer([value]);
 			},
@@ -94,8 +93,8 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1,
 			parser: (newValue, newSettings) => {
 				let value = 0;
-				if (newValue === true) value + 1;
-				if (newSettings['enable_group_3'] === true) value + 2;
+				if (newValue === true) value += 1;
+				if (newSettings['enable_group_3'] === true) value += 2;
 
 				return new Buffer([value]);
 			}
@@ -142,17 +141,20 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		},
 		reset_meter: (newValue, oldValue, deviceData) => {
 			const node = module.exports.nodes[deviceData.token];
-			if (newValue === '2' && typeof node.instance.CommandClass.COMMAND_CLASS_METER !== 'undefined') {
+
+			if (newValue === '2' && node && typeof node.instance.CommandClass.COMMAND_CLASS_METER !== 'undefined') {
 				node.instance.CommandClass.COMMAND_CLASS_METER.METER_RESET({}, (err, result) => {
-					if (result === 'TRANSMIT_COMPLETE_OK') {
-						module.exports.setSettings(node.device_data, {
-							reset_meter: '1'
-						});
-					} else {
-						module.exports.setSettings(node.device_data, {
-							reset_meter: '0'
-						});
-					}
+					setTimeout(() => {
+						if (result === 'TRANSMIT_COMPLETE_OK') {
+							module.exports.setSettings(node.device_data, {
+								reset_meter: '1'
+							});
+						} else {
+							module.exports.setSettings(node.device_data, {
+								reset_meter: '0'
+							});
+						}
+					}, 500);
 				});
 			}
 		},
@@ -162,11 +164,15 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 Homey.manager('flow').on('action.micro_smart_plug_reset_meter', (callback, args) => {
 	const node = module.exports.nodes[args.device.token];
 
-	if (typeof node.instance.CommandClass.COMMAND_CLASS_METER !== 'undefined') {
+	if (node && typeof node.instance.CommandClass.COMMAND_CLASS_METER !== 'undefined') {
 		node.instance.CommandClass.COMMAND_CLASS_METER.METER_RESET({}, (err, result) => {
 			if (err) return callback(err, false);
-			if (result === 'TRANSMIT_COMPLETE_OK') return callback(null, true);
-			return callback(result, false);
+			else if (result === 'TRANSMIT_COMPLETE_OK') {
+				module.exports.setSettings(node.device_data, {
+					reset_meter: '1'
+				});
+				return callback(null, true);
+			} else return callback(result, false);
 		});
 	} else return callback('device_not_available', false);
 });

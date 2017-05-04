@@ -13,7 +13,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_get: 'SWITCH_BINARY_GET',
 			command_set: 'SWITCH_BINARY_SET',
 			command_set_parser: value => ({
-				'Switch Value': (value > 0) ? 'on/enable' : 'off/disable',
+				'Switch Value': (value) ? 'on/enable' : 'off/disable',
 			}),
 			command_report: 'SWITCH_BINARY_REPORT',
 			command_report_parser: report => report['Value'] === 'on/enable',
@@ -44,8 +44,8 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1,
 			parser: (newValue, newSettings) => {
 				let value = 0;
-				if (newValue === true) value + 1;
-				if (newSettings['enable_group_3'] === true) value + 2;
+				if (newValue === true) value += 1;
+				if (newSettings['enable_group_3'] === true) value += 2;
 
 				return new Buffer([value]);
 			},
@@ -55,8 +55,8 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1,
 			parser: (newValue, newSettings) => {
 				let value = 0;
-				if (newValue === true) value + 1;
-				if (newSettings['enable_group_3'] === true) value + 2;
+				if (newValue === true) value += 1;
+				if (newSettings['enable_group_3'] === true) value += 2;
 
 				return new Buffer([value]);
 			},
@@ -66,11 +66,11 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1,
 			parser: (newValue, newSettings) => {
 				let value = 1;
-				if (newValue === true) value + 2;
-				if (newSettings['power_failure_group_5'] === true) value + 4;
-				if (newSettings['power_failure_group_6'] === true) value + 8;
-				if (newSettings['power_failure_group_7'] === true) value + 16;
-				if (newSettings['power_failure_group_8'] === true) value + 32;
+				if (newValue === true) value += 2;
+				if (newSettings['power_failure_group_5'] === true) value += 4;
+				if (newSettings['power_failure_group_6'] === true) value += 8;
+				if (newSettings['power_failure_group_7'] === true) value += 16;
+				if (newSettings['power_failure_group_8'] === true) value += 32;
 
 				return new Buffer([value]);
 			},
@@ -80,11 +80,11 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1,
 			parser: (newValue, newSettings) => {
 				let value = 1;
-				if (newSettings['power_failure_group_4'] === true) value + 2;
-				if (newValue === true) value + 4;
-				if (newSettings['power_failure_group_6'] === true) value + 8;
-				if (newSettings['power_failure_group_7'] === true) value + 16;
-				if (newSettings['power_failure_group_8'] === true) value + 32;
+				if (newSettings['power_failure_group_4'] === true) value += 2;
+				if (newValue === true) value += 4;
+				if (newSettings['power_failure_group_6'] === true) value += 8;
+				if (newSettings['power_failure_group_7'] === true) value += 16;
+				if (newSettings['power_failure_group_8'] === true) value += 32;
 
 				return new Buffer([value]);
 			},
@@ -94,11 +94,11 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1,
 			parser: (newValue, newSettings) => {
 				let value = 1;
-				if (newSettings['power_failure_group_4'] === true) value + 2;
-				if (newSettings['power_failure_group_5'] === true) value + 4;
-				if (newValue === true) value + 8;
-				if (newSettings['power_failure_group_7'] === true) value + 16;
-				if (newSettings['power_failure_group_8'] === true) value + 32;
+				if (newSettings['power_failure_group_4'] === true) value += 2;
+				if (newSettings['power_failure_group_5'] === true) value += 4;
+				if (newValue === true) value += 8;
+				if (newSettings['power_failure_group_7'] === true) value += 16;
+				if (newSettings['power_failure_group_8'] === true) value += 32;
 
 				return new Buffer([value]);
 			},
@@ -108,11 +108,11 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1,
 			parser: (newValue, newSettings) => {
 				let value = 1;
-				if (newSettings['power_failure_group_4'] === true) value + 2;
-				if (newSettings['power_failure_group_5'] === true) value + 4;
-				if (newSettings['power_failure_group_6'] === true) value + 8;
-				if (newValue === true) value + 16;
-				if (newSettings['power_failure_group_8'] === true) value + 32;
+				if (newSettings['power_failure_group_4'] === true) value += 2;
+				if (newSettings['power_failure_group_5'] === true) value += 4;
+				if (newSettings['power_failure_group_6'] === true) value += 8;
+				if (newValue === true) value += 16;
+				if (newSettings['power_failure_group_8'] === true) value += 32;
 
 				return new Buffer([value]);
 			},
@@ -122,11 +122,11 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1,
 			parser: (newValue, newSettings) => {
 				let value = 1;
-				if (newSettings['power_failure_group_4'] === true) value + 2;
-				if (newSettings['power_failure_group_5'] === true) value + 4;
-				if (newSettings['power_failure_group_6'] === true) value + 8;
-				if (newSettings['power_failure_group_7'] === true) value + 16;
-				if (newValue === true) value + 32;
+				if (newSettings['power_failure_group_4'] === true) value += 2;
+				if (newSettings['power_failure_group_5'] === true) value += 4;
+				if (newSettings['power_failure_group_6'] === true) value += 8;
+				if (newSettings['power_failure_group_7'] === true) value += 16;
+				if (newValue === true) value += 32;
 
 				return new Buffer([value]);
 			},

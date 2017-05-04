@@ -137,20 +137,18 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 module.exports.on('initNode', token => {
 	const node = module.exports.nodes[token];
 
-	if (typeof node.instance.CommandClass.COMMAND_CLASS_NOTIFICATION !== 'undefined') {
+	if (node && typeof node.instance.CommandClass.COMMAND_CLASS_NOTIFICATION !== 'undefined') {
 		node.instance.CommandClass.COMMAND_CLASS_NOTIFICATION.on('report', (command, report) => {
+			if (!command || !report) return;
 
-			if (command.name === 'NOTIFICATION_REPORT' &&
+			if (command &&
+				command.name === 'NOTIFICATION_REPORT' &&
+				report &&
 				typeof report['Notification Type'] === 'string' &&
 				report['Notification Type'] === 'Power Management' &&
-				(typeof report.Event !== 'undefined' ||
-				typeof report['Event (Parsed)'] !== 'undefined')) {
-
-				if (report.Event === 2 || report['Event (Parsed)'] === 'AC mains disconnected') {
-					Homey.manager('flow').triggerDevice('smart_plug_powerfail', null, null, node.device_data);
-				} else if (report.Event === 3 || report['Event (Parsed)'] === 'AC mains re-connected') {
-					Homey.manager('flow').triggerDevice('smart_plug_powerrestore', null, null, node.device_data);
-				}
+				typeof report.Event !== 'undefined') {
+				if (report.Event === 2) Homey.manager('flow').triggerDevice('smart_plug_powerfail', null, null, node.device_data);
+				if (report.Event === 3) Homey.manager('flow').triggerDevice('smart_plug_powerrestore', null, null, node.device_data);
 			}
 		});
 	}

@@ -1234,6 +1234,19 @@
           "value": false
         },
         {
+          "id": "led_indicator",
+          "type": "checkbox",
+          "label": {
+            "en": "LED Indicator",
+            "nl": "LED Indicator"
+          },
+          "hint": {
+            "en": "Determine if the LED indicates its current state",
+            "nl": "Bepaal of de LED de huidige status aangeeft."
+          },
+          "value": true
+        },
+        {
           "type": "group",
           "label": {
             "en": "Commands To Association Groups",

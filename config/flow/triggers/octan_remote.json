@@ -2,8 +2,8 @@
   {
     "id": "octan_remote",
     "title": {
-      "en": "Scene Activation",
-      "nl": "Scene Activatie"
+      "en": "Scene activation",
+      "nl": "Scene activatie"
     },
     "hint": {
       "en": "This flow card will only trigger if the corresponding button settings are in \"Scene Mode\"",
@@ -70,14 +70,14 @@
           {
             "id": "Key Held Down",
             "label": {
-              "en": "Held Down (triggers until released)",
+              "en": "Held down (triggers until released)",
               "nl": "Ingehouden (triggerd tot los laat)"
             }
           },
           {
             "id": "Key Released",
             "label": {
-              "en": "Key Released",
+              "en": "Key released",
               "nl": "Losgelaten"
             }
           }
@@ -136,8 +136,8 @@
           {
             "id": "stop",
             "label": {
-              "en": "Stop Dimming",
-              "nl": "Stop Dimmen"
+              "en": "Stop dimming",
+              "nl": "Stop dimmen"
             }
           }
         ]

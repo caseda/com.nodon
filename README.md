@@ -24,6 +24,11 @@ For battery devices it's best to press a button 2 seconds Before pressing the sa
 This will make it 100% sure the device takes the new settings (immediately).
 
 ### Change Log:
+**1.1.1:**
+- Add LED indicator setting (Micro) Smart Plug
+- Fix power notifications Smart Plug (From Homey firmware v1.3.x and higher)
+- Fix association group settings (Micro) Smart Plug
+
 **1.1.0:**
 - Add support Micro Smart Plug (both E-type and Schuko plugs)
 - Add support Smart Plug (both E-type and Schuko plugs)

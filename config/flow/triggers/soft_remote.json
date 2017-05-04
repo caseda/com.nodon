@@ -2,8 +2,12 @@
   {
     "id": "soft_remote",
     "title": {
-      "en": "Soft Remote",
-      "nl": "Soft Afstandbediening"
+      "en": "Scene activation",
+      "nl": "Scene activatie"
+    },
+    "hint": {
+      "en": "This flow card will only trigger if the corresponding button settings are in \"Scene Mode\"",
+      "nl": "Deze flow kaart activeerd alleen als de overeenkomstig knop instellingen staat op \"Scene Modus\""
     },
     "args": [
       {
@@ -66,14 +70,14 @@
           {
             "id": "Key Held Down",
             "label": {
-              "en": "Held Down (triggers until released)",
+              "en": "Held down (triggers until released)",
               "nl": "Ingehouden (triggerd tot los laat)"
             }
           },
           {
             "id": "Key Released",
             "label": {
-              "en": "Key Released",
+              "en": "Key released",
               "nl": "Losgelaten"
             }
           }
@@ -132,8 +136,8 @@
           {
             "id": "stop",
             "label": {
-              "en": "Stop Dimming",
-              "nl": "Stop Dimmen"
+              "en": "Stop dimming",
+              "nl": "Stop dimmen"
             }
           }
         ]

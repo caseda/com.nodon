@@ -662,8 +662,8 @@
             "nl": "LED Indicator"
           },
           "hint": {
-            "en": "Determine if the LED indicates its current state",
-            "nl": "Bepaal of de LED de huidige status aangeeft."
+            "en": "Determine if the LED indicates its current state.\nIt will turn on again on the micro smart plug when power was lost.",
+            "nl": "Bepaal of de LED de huidige status aangeeft.\nGaat weer aan op de mini tussenstekker bij het verliezen van zijn spanning."
           },
           "value": true
         },
@@ -1248,7 +1248,7 @@
             "nl": "LED Indicator"
           },
           "hint": {
-            "en": "Determine if the LED indicates its current state",
+            "en": "Determine if the LED indicates its current state.",
             "nl": "Bepaal of de LED de huidige status aangeeft."
           },
           "value": true

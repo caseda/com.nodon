@@ -61,6 +61,22 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			},
 		}
 	},
+	beforeInit: (token, callback) => {
+		const node = module.exports.nodes[token];
+		// If indicator was off, resend it so it stays off
+		if (node) {
+			module.exports.getSettings(node.device_data, (err, settings) => {
+				if (settings.hasOwnProperty('led_indicator') && settings.led_indicator === false && typeof node.instance.CommandClass.COMMAND_CLASS_INDICATOR !== 'undefined') {
+					node.instance.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
+						"Value": 0,
+					}, err => {
+						if (err) console.error(err);
+					});
+				}
+			});
+		}
+		callback();
+	},
 	settings: {
 		save_state: {
 			index: 1,
@@ -73,7 +89,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				node.instance.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
 					"Value": (newValue) ? 1 : 0,
 				}, err => {
-					if (err) return console.error(err, false);
+					if (err) console.error(err);
 				});
 			}
 		},

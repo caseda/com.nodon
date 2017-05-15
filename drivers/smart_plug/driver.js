@@ -35,7 +35,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				node.instance.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
 					"Value": (newValue) ? 1 : 0,
 				}, err => {
-					if (err) return console.error(err, false);
+					if (err) console.error(err);
 				});
 			}
 		},
@@ -148,7 +148,17 @@ module.exports.on('initNode', token => {
 				report['Notification Type'] === 'Power Management' &&
 				typeof report.Event !== 'undefined') {
 				if (report.Event === 2) Homey.manager('flow').triggerDevice('smart_plug_powerfail', null, null, node.device_data);
-				if (report.Event === 3) Homey.manager('flow').triggerDevice('smart_plug_powerrestore', null, null, node.device_data);
+				if (report.Event === 3) {
+					// If indicator was off, resend it so it stays off
+					if (node.settings.hasOwnProperty('led_indicator') && node.settings.led_indicator === false && typeof node.instance.CommandClass.COMMAND_CLASS_INDICATOR !== 'undefined') {
+						node.instance.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
+							"Value": 0,
+						}, err => {
+							if (err) console.error(err);
+						});
+					}
+					Homey.manager('flow').triggerDevice('smart_plug_powerrestore', null, null, node.device_data);
+				}
 			}
 		});
 	}

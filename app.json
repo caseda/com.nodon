@@ -3,8 +3,9 @@
   "name": {
     "en": "NodOn"
   },
-  "version": "1.1.1",
-  "compatibility": ">=1.1.3",
+  "sdk": 2,
+  "version": "2.0.0",
+  "compatibility": ">=1.5.0",
   "description": {
     "en": "NodOn Z-Wave devices for Homey",
     "nl": "NodOn Z-Wave apparaten voor Homey"
@@ -21,6 +22,17 @@
   "author": {
     "name": "R. Mengers",
     "email": "caseda08@hotmail.com"
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "caseda",
+        "currency": "EUR"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/caseda/com.nodon/issues"
   },
   "flow": {
     "triggers": [
@@ -166,6 +178,41 @@
                 }
               }
             ]
+          }
+        ]
+      },
+      {
+        "id": "scene_token",
+        "title": {
+          "en": "Scene button pressed",
+          "nl": "Scene knop gedrukt"
+        },
+        "hint": {
+          "en": "This flow card will only trigger if the corresponding settings are in \"Scene Mode\"",
+          "nl": "Deze flow kaart activeerd alleen als de overeenkomstig instellingen staat op \"Scene Modus\""
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=octan_remote|soft_remote|wall_switch"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "button",
+            "title": {
+              "en": "button",
+              "nl": "knop"
+            },
+            "example": "1"
+          },
+          {
+            "name": "scene",
+            "title": {
+              "en": "scene"
+            },
+            "example": "Key Pressed 1 time"
           }
         ]
       },
@@ -500,12 +547,30 @@
       {
         "id": "micro_smart_plug_reset_meter",
         "title": {
-          "en": "Reset power meter (kWh)",
-          "nl": "Energiemeter (kWh) resetten"
+          "en": "Deprecated - Reset meter",
+          "nl": "Verouderd - Meters opnieuw instellen"
         },
         "hint": {
-          "en": "WARNING: This action can't be undone.",
-          "nl": "WAARSCHUWING: Deze actie kan niet ongedaan worden gemaakt."
+          "en": "This card is Deprecated, please use the new reset meter card.\n\nThis card will be deleted in the near future.",
+          "nl": "Deze kaart is verouderd, gebruik alsjeblieft de nieuwe reset meter kaart.\n\nDeze kaart zal in de toekomst worden verwijderd."
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=micro_smart_plug"
+          }
+        ]
+      },
+      {
+        "id": "resetMeter",
+        "title": {
+          "en": "Reset meter values",
+          "nl": "Meter waarden opnieuw instellen"
+        },
+        "hint": {
+          "en": "Reset the accumulated power usage value (kWh), note that this can not be reversed.",
+          "nl": "Stel geaccumuleerde stroomverbruik waarde (kWh) opnieuw in, dit kan niet worden teruggedraaid."
         },
         "args": [
           {
@@ -608,6 +673,10 @@
         {
           "id": "save_state",
           "type": "dropdown",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
           "label": {
             "en": "Power Restored State",
             "nl": "Stroom Hersteld Status"
@@ -644,6 +713,10 @@
         {
           "id": "always_on",
           "type": "checkbox",
+          "zwave": {
+            "index": 4,
+            "size": 1
+          },
           "label": {
             "en": "Always On",
             "nl": "Altijd Aan"
@@ -670,6 +743,10 @@
         {
           "id": "enable_group_2",
           "type": "checkbox",
+          "zwave": {
+            "index": 3,
+            "size": 1
+          },
           "label": {
             "en": "Group 2 Follow State",
             "nl": "Groep 2 Volg Status"
@@ -683,6 +760,10 @@
         {
           "id": "enable_group_3",
           "type": "checkbox",
+          "zwave": {
+            "index": 3,
+            "size": 1
+          },
           "label": {
             "en": "Group 3 Follow State",
             "nl": "Groep 3 Volg Status"
@@ -696,6 +777,10 @@
         {
           "id": "watt_threshold",
           "type": "number",
+          "zwave": {
+            "index": 21,
+            "size": 1
+          },
           "label": {
             "en": "Wattage Threshold",
             "nl": "Wattage Drempel"
@@ -713,23 +798,32 @@
         {
           "id": "overload",
           "type": "number",
+          "zwave": {
+            "index": 22,
+            "size": 2
+          },
           "label": {
             "en": "Overload Protection",
             "nl": "Overbelastings Beveiliging"
           },
           "hint": {
-            "en": "Determine above what wattage the micro smart plug must turn off.\nRange: 1 - 2000 Watt",
-            "nl": "Bepaal boven welke wattage de mini tussenstekker uit moet zetten.\nBereik: 1 - 2000 Watt"
+            "en": "Determine above what wattage the micro smart plug must turn off.\nRange: 0 (disabled), 1 - 2000 Watt",
+            "nl": "Bepaal boven welke wattage de mini tussenstekker uit moet zetten.\nBereik: 0 (uit), 1 - 2000 Watt"
           },
           "value": 2000,
           "attr": {
-            "min": 1,
+            "min": 0,
             "max": 2000
           }
         },
         {
           "id": "kwh_threshold",
           "type": "number",
+          "zwave": {
+            "index": 23,
+            "size": 2,
+            "signed": false
+          },
           "label": {
             "en": "kWh Threshold",
             "nl": "kWh Drempel"
@@ -748,6 +842,11 @@
         {
           "id": "all_data",
           "type": "number",
+          "zwave": {
+            "index": 24,
+            "size": 2,
+            "signed": false
+          },
           "label": {
             "en": "Interval Meterning Values",
             "nl": "Interval Meter Waardes"
@@ -763,8 +862,33 @@
           }
         },
         {
+          "id": "onoff_low",
+          "type": "number",
+          "zwave": {
+            "index": 26,
+            "size": 1
+          },
+          "label": {
+            "en": "Wattage Low Threshold",
+            "nl": "Wattage Laag Drempel"
+          },
+          "hint": {
+            "en": "Below what wattage value does the \"low\" association group (5) get triggerd.\nRange: 0 (Off), 1 - 2000",
+            "nl": "Onder welke wattage waarde word de \"laag\" assoctiatie groep (5) getriggerd.\nBereik: 0 (Uit), 1 - 2000"
+          },
+          "value": 5,
+          "attr": {
+            "min": 0,
+            "max": 2000
+          }
+        },
+        {
           "id": "onoff_high",
           "type": "number",
+          "zwave": {
+            "index": 25,
+            "size": 1
+          },
           "label": {
             "en": "Wattage High Threshold",
             "nl": "Wattage Hoog Drempel"
@@ -782,6 +906,10 @@
         {
           "id": "command_group_4",
           "type": "radio",
+          "zwave": {
+            "index": 27,
+            "size": 1
+          },
           "label": {
             "en": "Command High Threshold",
             "nl": "Command Hoog Drempel"
@@ -816,25 +944,12 @@
           ]
         },
         {
-          "id": "onoff_low",
-          "type": "number",
-          "label": {
-            "en": "Wattage Low Threshold",
-            "nl": "Wattage Laag Drempel"
-          },
-          "hint": {
-            "en": "Below what wattage value does the \"low\" association group (5) get triggerd.\nRange: 0 (Off), 1 - 2000",
-            "nl": "Onder welke wattage waarde word de \"laag\" assoctiatie groep (5) getriggerd.\nBereik: 0 (Uit), 1 - 2000"
-          },
-          "value": 5,
-          "attr": {
-            "min": 0,
-            "max": 2000
-          }
-        },
-        {
           "id": "command_group_5",
           "type": "radio",
+          "zwave": {
+            "index": 27,
+            "size": 1
+          },
           "label": {
             "en": "Command Low Threshold",
             "nl": "Command Laag Drempel"
@@ -864,42 +979,6 @@
               "label": {
                 "en": "On",
                 "nl": "Aan"
-              }
-            }
-          ]
-        },
-        {
-          "id": "reset_meter",
-          "type": "dropdown",
-          "label": {
-            "en": "Reset Power Meter (kWh)",
-            "nl": "Reset Energiemeter (kWh)"
-          },
-          "hint": {
-            "en": "WARNING:\nThe reset action can't be undone.\n\nThe updated status will be shown after re-opening the settings",
-            "nl": "WAARSCHUWING:\nDe reset actie kan niet ongedaan worden gemaakt.\n\nDe geupdate status word weergegeven na het heropenen van de settings."
-          },
-          "value": "1",
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Reset Failed",
-                "nl": "Reset mislukt"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Reset/Default",
-                "nl": "Gereset/Standaard"
-              }
-            },
-            {
-              "id": "2",
-              "label": {
-                "en": "Initiate reset",
-                "nl": "Activeer reset"
               }
             }
           ]
@@ -990,6 +1069,10 @@
         {
           "id": "profile_1_3",
           "type": "dropdown",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
           "label": {
             "en": "Mode Buttons 1 ( ● ) & 3 ( ◯ )",
             "nl": "Modus Knoppen 1 ( ● ) & 3 ( ◯ )"
@@ -1026,6 +1109,10 @@
         {
           "id": "profile_2_4",
           "type": "dropdown",
+          "zwave": {
+            "index": 2,
+            "size": 1
+          },
           "label": {
             "en": "Mode Buttons 2 ( + ) & 4 ( - )",
             "nl": "Modus Knoppen 2 ( + ) & 4 ( - )"
@@ -1062,6 +1149,10 @@
         {
           "id": "led",
           "type": "dropdown",
+          "zwave": {
+            "index": 8,
+            "size": 1
+          },
           "label": {
             "en": "LED behaviour",
             "nl": "Gedrag LED"
@@ -1194,6 +1285,10 @@
         {
           "id": "save_state",
           "type": "dropdown",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
           "label": {
             "en": "Power Restored State",
             "nl": "Stroom Hersteld Status"
@@ -1230,6 +1325,10 @@
         {
           "id": "always_on",
           "type": "checkbox",
+          "zwave": {
+            "index": 4,
+            "size": 1
+          },
           "label": {
             "en": "Always On",
             "nl": "Altijd Aan"
@@ -1264,6 +1363,10 @@
             {
               "id": "enable_group_2",
               "type": "checkbox",
+              "zwave": {
+                "index": 3,
+                "size": 1
+              },
               "label": {
                 "en": "2: Follow State",
                 "nl": "2: Volg Status"
@@ -1277,6 +1380,10 @@
             {
               "id": "enable_group_3",
               "type": "checkbox",
+              "zwave": {
+                "index": 3,
+                "size": 1
+              },
               "label": {
                 "en": "3: Follow State Manual",
                 "nl": "3: Volg Status Handmatig"
@@ -1290,6 +1397,10 @@
             {
               "id": "power_failure_group_4",
               "type": "checkbox",
+              "zwave": {
+                "index": 2,
+                "size": 1
+              },
               "label": {
                 "en": "4: Power Failure Notification",
                 "nl": "4: Stroomuitval notificatie"
@@ -1303,6 +1414,10 @@
             {
               "id": "power_failure_group_5",
               "type": "checkbox",
+              "zwave": {
+                "index": 2,
+                "size": 1
+              },
               "label": {
                 "en": "5: On Command on Power Failure",
                 "nl": "5: Aan Commando bij Stroomuitval"
@@ -1316,6 +1431,10 @@
             {
               "id": "power_failure_group_6",
               "type": "checkbox",
+              "zwave": {
+                "index": 2,
+                "size": 1
+              },
               "label": {
                 "en": "6: Off Command on Power Failure",
                 "nl": "6: Uit Commando bij Stroomuitval"
@@ -1329,6 +1448,10 @@
             {
               "id": "power_failure_group_7",
               "type": "checkbox",
+              "zwave": {
+                "index": 2,
+                "size": 1
+              },
               "label": {
                 "en": "7: On Command on Power Resume",
                 "nl": "7: Aan Commando bij Hervatten Stroom"
@@ -1342,6 +1465,10 @@
             {
               "id": "power_failure_group_8",
               "type": "checkbox",
+              "zwave": {
+                "index": 2,
+                "size": 1
+              },
               "label": {
                 "en": "8: Off Command on Power Resume",
                 "nl": "8: Uit Commando bij Hervatten Stroom"
@@ -1439,6 +1566,10 @@
         {
           "id": "profile_1_3",
           "type": "dropdown",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
           "label": {
             "en": "Mode Buttons 1 ( ● ) & 3 ( ◯ )",
             "nl": "Modus Knoppen 1 ( ● ) & 3 ( ◯ )"
@@ -1475,6 +1606,10 @@
         {
           "id": "profile_2_4",
           "type": "dropdown",
+          "zwave": {
+            "index": 2,
+            "size": 1
+          },
           "label": {
             "en": "Mode Buttons 2 ( + ) & 4 ( - )",
             "nl": "Modus Knoppen 2 ( + ) & 4 ( - )"
@@ -1511,6 +1646,10 @@
         {
           "id": "led",
           "type": "dropdown",
+          "zwave": {
+            "index": 8,
+            "size": 1
+          },
           "label": {
             "en": "LED behaviour",
             "nl": "Gedrag LED"
@@ -1636,6 +1775,10 @@
         {
           "id": "profile_1_3",
           "type": "dropdown",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
           "label": {
             "en": "Mode Buttons 1 ( Upper-Left ) & 3 ( Lower-Left )",
             "nl": "Modus Knoppen 1 ( Links-Boven ) & 3 ( Links-Onder )"
@@ -1672,6 +1815,10 @@
         {
           "id": "profile_2_4",
           "type": "dropdown",
+          "zwave": {
+            "index": 2,
+            "size": 1
+          },
           "label": {
             "en": "Mode Buttons 2 ( Upper-Right ) & 4 ( Lower-Right )",
             "nl": "Modus Knoppen 2 ( Rechts-Boven ) & 4 ( Rechts-Onder )"
@@ -1708,6 +1855,10 @@
         {
           "id": "led",
           "type": "dropdown",
+          "zwave": {
+            "index": 8,
+            "size": 1
+          },
           "label": {
             "en": "LED behaviour",
             "nl": "Gedrag LED"

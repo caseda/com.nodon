@@ -1,5 +1,4 @@
 # NodOn
-
 This app adds support for NodOn Z-Wave devices in Homey.
 
 ## Supported Devices:
@@ -41,6 +40,9 @@ Unfortunately I can not synchronize this in the settings automatically.
 It will be resend to the device on app (re)start, or you can do it manually in the settings.
 
 ### Change Log:
+**2.0.0:**
+- Rewrite to SDKv2
+
 **1.1.1:**
 - Add LED indicator setting (Micro) Smart Plug
 - Fix power notifications Smart Plug (From Homey firmware v1.3.x and higher)

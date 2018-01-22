@@ -1,38 +1,38 @@
 [
-  {
-    "id": "smart_plug_powerfail",
-    "title": {
-      "en": "Power was interupted",
-      "nl": "Spanning is onderbroken"
-    },
-    "hint": {
-      "en": "This will trigger if the power is interupted, or the smart plug was removed from its socket.",
-      "nl": "Dit zal activeren als er de spanning word onderbroken, of als de tussenstekker uit zijn stopcontact is gehaalt."
-    },
-    "args": [
-      {
-        "name": "device",
-        "type": "device",
-        "filter": "driver_id=smart_plug"
-      }
-    ]
-  },
-  {
-    "id": "smart_plug_powerrestore",
-    "title": {
-      "en": "Power was retored",
-      "nl": "Spanning is hersteld"
-    },
-    "hint": {
-      "en": "This will trigger if the power was restored, or the smart plug is plugged into its socket again",
-      "nl": "Dit zal activeren als de spanning word hersteld, of als de tussenstekker weer in zijn stopcontact word gestoken."
-    },
-    "args": [
-      {
-        "name": "device",
-        "type": "device",
-        "filter": "driver_id=smart_plug"
-      }
-    ]
-  }
+	{
+		"id": "smart_plug_powerfail",
+		"title": {
+			"en": "Power was interupted",
+			"nl": "Spanning is onderbroken"
+		},
+		"hint": {
+			"en": "This will trigger if the power is interupted, or the smart plug was removed from its socket.",
+			"nl": "Dit zal activeren als er de spanning word onderbroken, of als de tussenstekker uit zijn stopcontact is gehaalt."
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=smart_plug"
+			}
+		]
+	},
+	{
+		"id": "smart_plug_powerrestore",
+		"title": {
+			"en": "Power was retored",
+			"nl": "Spanning is hersteld"
+		},
+		"hint": {
+			"en": "This will trigger if the power was restored, or the smart plug is plugged into its socket again",
+			"nl": "Dit zal activeren als de spanning word hersteld, of als de tussenstekker weer in zijn stopcontact word gestoken."
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=smart_plug"
+			}
+		]
+	}
 ]

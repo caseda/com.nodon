@@ -1,20 +1,20 @@
 [
-  {
-    "id": "micro_smart_plug_reset_meter",
-    "title": {
-      "en": "Reset power meter (kWh)",
-      "nl": "Energiemeter (kWh) resetten"
-    },
-    "hint": {
-      "en": "WARNING: This action can't be undone.",
-      "nl": "WAARSCHUWING: Deze actie kan niet ongedaan worden gemaakt."
-    },
-    "args": [
-      {
-        "name": "device",
-        "type": "device",
-        "filter": "driver_id=micro_smart_plug"
-      }
-    ]
-  }
+	{
+		"id": "micro_smart_plug_reset_meter",
+		"title": {
+			"en": "Deprecated - Reset meter",
+			"nl": "Verouderd - Meters opnieuw instellen"
+		},
+		"hint": {
+			"en": "This card is Deprecated, please use the new reset meter card.\n\nThis card will be deleted in the near future.",
+			"nl": "Deze kaart is verouderd, gebruik alsjeblieft de nieuwe reset meter kaart.\n\nDeze kaart zal in de toekomst worden verwijderd."
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=micro_smart_plug"
+			}
+		]
+	}
 ]

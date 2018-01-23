@@ -1,5 +1,11 @@
-"use strict";
+'use strict';
 
-module.exports.init = function() {
-	Homey.log("com.nodon running...");
+const Homey = require('homey');
+
+class NodOnApp extends Homey.App {
+	onInit() {
+		this.log(`${Homey.manifest.id} running...`);
+	}
 }
+
+module.exports = NodOnApp;

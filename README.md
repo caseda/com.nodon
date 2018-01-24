@@ -2,16 +2,16 @@
 This app adds support for NodOn Z-Wave devices in Homey.
 
 ## Supported Devices:
-* Octan Remote - Scene triggers for all 4 buttons.
-* Soft Remote - Scene triggers for all 4 buttons.
-* Wall Switch - Scene triggers for both switches (in both directions).
+* Octan Remote - Button Sequence and Scene triggers for all 4 buttons.
+* Soft Remote - Button Sequence and Scene triggers for all 4 buttons.
+* Wall Switch - Button Sequence and Scene triggers for both switches (in both directions).
 * Smart Plug.
 * Micro Smart Plug.
 
 ### Scene Triggers:
 * Single Press
 * Double Press
-* Long Press (Constantly Triggered)
+* Long Press (1x / 5x per second)
 * Long Press Released
 
 ### Supported Languages:
@@ -19,17 +19,6 @@ This app adds support for NodOn Z-Wave devices in Homey.
 * Dutch (Nederlands)
 
 ### Notes:
-**Micro Smart Plug, wattage report:**
-There are still a few Micro Smart Plugs around with old firmware (v1.07).  
-These contain a bug with the reports of the wattage.  
-This causes them to keep sending every change, even when nothing is attached, and the setting is ignored.  
-This has been fixed in a recent firmware update (v1.55).  
-You can see if you have a fixed version by an added note in the packaging that the setting's default value of 10% was changed.  
-
-If you have a Z-Wave USB stick you can update manually.  
-Contact support@nodon.fr for the latest firmware (they have a quick response time).  
-Updating via Homey will be supported in the future.
-
 **Battery Devices, saving settings:**
 For battery devices it's best to press a button 2 seconds Before pressing the save button.  
 This will make it 100% sure the device takes the new settings (immediately).
@@ -39,7 +28,16 @@ The LED indicator on the Micro Smart Plug goes on again when power was lost.
 Unfortunately I can not synchronize this in the settings automatically.  
 It will be resend to the device on app (re)start, or you can do it manually in the settings.
 
+**Sequences:**
+Sequence's buttons can be separated by a comma ( , ) or a semicolon ( ; ).  
+The buttons/switches themselves are in number, ranging from 1 to 4, going from left to right, top to bottom respectively.
+
 ### Change Log:
+**2.0.1:**
+Octan Remote, Soft Remote and Wall Switch:
+- Add (software based) sequence support.
+- Add 1x trigger for the "held down" scene (5x per second was already there).
+
 **2.0.0:**
 - Rewrite to SDKv2
 

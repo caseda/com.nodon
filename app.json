@@ -4,7 +4,7 @@
     "en": "NodOn"
   },
   "sdk": 2,
-  "version": "2.0.0",
+  "version": "2.0.1",
   "compatibility": ">=1.5.0",
   "description": {
     "en": "NodOn Z-Wave devices for Homey",
@@ -105,10 +105,17 @@
                 }
               },
               {
+                "id": "Key Held Down Single",
+                "label": {
+                  "en": "Held down (1x)",
+                  "nl": "Ingehouden (1x)"
+                }
+              },
+              {
                 "id": "Key Held Down",
                 "label": {
-                  "en": "Held down (triggers until released)",
-                  "nl": "Ingehouden (triggerd tot los laat)"
+                  "en": "Held down (5x per second)",
+                  "nl": "Ingehouden (5x per seconde)"
                 }
               },
               {
@@ -217,6 +224,32 @@
         ]
       },
       {
+        "id": "button_sequence",
+        "title": {
+          "en": "Button sequence",
+          "nl": "Knoppen reeks"
+        },
+        "hint": {
+          "en": "Separate the buttons ( 1 - 4 ) of the sequence with a comma ( , ) or semicolon ( ; ), 2x the same button after each other is not possible.\n\nThis flow card will only trigger if the corresponding settings are in \"Scene Mode\".\nAnd the sequence setting activated.",
+          "nl": "Verdeel de Knoppen ( 1 - 4 ) van de reeks met een komma ( , ) of puntkomma ( ; ), 2x dezelfde knop achter elkaar is niet mogelijk.\n\nDeze flow kaart activeerd alleen als de overeenkomstig instellingen staat op \"Scene Modus\"\nEn de reeks setting geactiveerd."
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=octan_remote|soft_remote|wall_switch"
+          },
+          {
+            "name": "sequence",
+            "type": "text",
+            "placeholder": {
+              "en": "example sequence: 1, 2, 3",
+              "nl": "voorbeeld reeks: 1, 2, 3"
+            }
+          }
+        ]
+      },
+      {
         "id": "smart_plug_powerfail",
         "title": {
           "en": "Power was interupted",
@@ -321,10 +354,17 @@
                 }
               },
               {
+                "id": "Key Held Down Single",
+                "label": {
+                  "en": "Held down (1x)",
+                  "nl": "Ingehouden (1x)"
+                }
+              },
+              {
                 "id": "Key Held Down",
                 "label": {
-                  "en": "Held down (triggers until released)",
-                  "nl": "Ingehouden (triggerd tot los laat)"
+                  "en": "Held down (5x per second)",
+                  "nl": "Ingehouden (5x per seconde)"
                 }
               },
               {
@@ -466,10 +506,17 @@
                 }
               },
               {
+                "id": "Key Held Down Single",
+                "label": {
+                  "en": "Held down (1x)",
+                  "nl": "Ingehouden (1x)"
+                }
+              },
+              {
                 "id": "Key Held Down",
                 "label": {
-                  "en": "Held down (triggers until released)",
-                  "nl": "Ingehouden (triggerd tot los laat)"
+                  "en": "Held down (5x per second)",
+                  "nl": "Ingehouden (5x per seconde)"
                 }
               },
               {
@@ -1192,6 +1239,37 @@
               }
             }
           ]
+        },
+        {
+          "id": "sequence_activation",
+          "type": "checkbox",
+          "label": {
+            "en": "Sequence Activation",
+            "nl": "Reeks Activatie"
+          },
+          "hint": {
+            "en": "Be able to trigger on a sequence of button presses.\nThis will lower responce time of single press triggers.\n\nOnly works if button settings are on \"Scene\" mode",
+            "nl": "Trigger flows door een reeks van knoppen te gebruiken.\nDit zal de snelheid van enkele klik triggers verlagen.\n\nWerkt alleen als de knop instellingen op \"Scene\" modus staan"
+          },
+          "value": false
+        },
+        {
+          "id": "sequence_timeout",
+          "type": "number",
+          "label": {
+            "en": "Sequence Timeout",
+            "nl": "Reeks Timeout"
+          },
+          "hint": {
+            "en": "Determine how many seconds you have between every button push for a sequence, also keep the signal receiving time in mind.\nRange: 0.1 - 5.0 seconds",
+            "nl": "Bepaal hoeveel seconden je hebt tussen het drukken van knoppen voor een reeks, houd rekening met het signaal ontvangst tijd.\nBereik: 0,1 - 5,0 seconden"
+          },
+          "value": 2,
+          "attr": {
+            "min": 0.1,
+            "max": 5,
+            "step": 0.1
+          }
         }
       ]
     },
@@ -1689,6 +1767,37 @@
               }
             }
           ]
+        },
+        {
+          "id": "sequence_activation",
+          "type": "checkbox",
+          "label": {
+            "en": "Sequence Activation",
+            "nl": "Reeks Activatie"
+          },
+          "hint": {
+            "en": "Be able to trigger on a sequence of button presses.\nThis will lower responce time of single press triggers.\n\nOnly works if button settings are on \"Scene\" mode",
+            "nl": "Trigger flows door een reeks van knoppen te gebruiken.\nDit zal de snelheid van enkele klik triggers verlagen.\n\nWerkt alleen als de knop instellingen op \"Scene\" modus staan"
+          },
+          "value": false
+        },
+        {
+          "id": "sequence_timeout",
+          "type": "number",
+          "label": {
+            "en": "Sequence Timeout",
+            "nl": "Reeks Timeout"
+          },
+          "hint": {
+            "en": "Determine how many seconds you have between every button push for a sequence, also keep the signal receiving time in mind.\nRange: 0.1 - 5.0 seconds",
+            "nl": "Bepaal hoeveel seconden je hebt tussen het drukken van knoppen voor een reeks, houd rekening met het signaal ontvangst tijd.\nBereik: 0,1 - 5,0 seconden"
+          },
+          "value": 2,
+          "attr": {
+            "min": 0.1,
+            "max": 5,
+            "step": 0.1
+          }
         }
       ]
     },
@@ -1898,6 +2007,37 @@
               }
             }
           ]
+        },
+        {
+          "id": "sequence_activation",
+          "type": "checkbox",
+          "label": {
+            "en": "Sequence Activation",
+            "nl": "Reeks Activatie"
+          },
+          "hint": {
+            "en": "Be able to trigger on a sequence of button presses.\nThis will lower responce time of single press triggers.\n\nOnly works if button settings are on \"Scene\" mode",
+            "nl": "Trigger flows door een reeks van knoppen te gebruiken.\nDit zal de snelheid van enkele klik triggers verlagen.\n\nWerkt alleen als de knop instellingen op \"Scene\" modus staan"
+          },
+          "value": false
+        },
+        {
+          "id": "sequence_timeout",
+          "type": "number",
+          "label": {
+            "en": "Sequence Timeout",
+            "nl": "Reeks Timeout"
+          },
+          "hint": {
+            "en": "Determine how many seconds you have between every button push for a sequence, also keep the signal receiving time in mind.\nRange: 0.1 - 5.0 seconds",
+            "nl": "Bepaal hoeveel seconden je hebt tussen het drukken van knoppen voor een reeks, houd rekening met het signaal ontvangst tijd.\nBereik: 0,1 - 5,0 seconden"
+          },
+          "value": 2,
+          "attr": {
+            "min": 0.1,
+            "max": 5,
+            "step": 0.1
+          }
         }
       ]
     }

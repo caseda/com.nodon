@@ -68,10 +68,17 @@
 						}
 					},
 					{
+						"id": "Key Held Down Single",
+						"label": {
+							"en": "Held down (1x)",
+							"nl": "Ingehouden (1x)"
+						}
+					},
+					{
 						"id": "Key Held Down",
 						"label": {
-							"en": "Held down (triggers until released)",
-							"nl": "Ingehouden (triggerd tot los laat)"
+							"en": "Held down (5x per second)",
+							"nl": "Ingehouden (5x per seconde)"
 						}
 					},
 					{

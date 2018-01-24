@@ -204,6 +204,37 @@
 					}
 				}
 			]
+		},
+		{
+			"id": "sequence_activation",
+			"type": "checkbox",
+			"label": {
+				"en": "Sequence Activation",
+				"nl": "Reeks Activatie"
+			},
+			"hint": {
+				"en": "Be able to trigger on a sequence of button presses.\nThis will lower responce time of single press triggers.\n\nOnly works if button settings are on \"Scene\" mode",
+				"nl": "Trigger flows door een reeks van knoppen te gebruiken.\nDit zal de snelheid van enkele klik triggers verlagen.\n\nWerkt alleen als de knop instellingen op \"Scene\" modus staan"
+			},
+			"value": false
+		},
+		{
+			"id": "sequence_timeout",
+			"type": "number",
+			"label": {
+				"en": "Sequence Timeout",
+				"nl": "Reeks Timeout"
+			},
+			"hint": {
+				"en": "Determine how many seconds you have between every button push for a sequence, also keep the signal receiving time in mind.\nRange: 0.1 - 5.0 seconds",
+				"nl": "Bepaal hoeveel seconden je hebt tussen het drukken van knoppen voor een reeks, houd rekening met het signaal ontvangst tijd.\nBereik: 0,1 - 5,0 seconden"
+			},
+			"value": 2,
+			"attr": {
+				"min": 0.1,
+				"max": 5,
+				"step": 0.1
+			}
 		}
 	]
 }

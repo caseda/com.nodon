@@ -27,7 +27,7 @@ class WallSwitch extends ZwaveDevice {
 			.register();
 
 		let wallSwitchNonScene = new Homey.FlowCardTriggerDevice('wall_switch_nonscene');
-		soft_remote_nonscene
+		wallSwitchNonScene
 			.register()
 			.registerRunListener((args, state) => {
 				if (args.hasOwnProperty('value') && state.hasOwnProperty('value')) {
@@ -54,7 +54,7 @@ class WallSwitch extends ZwaveDevice {
 			});
 
 		// Central Scene flow triggers
-		let sequence = [], previousSequence, sequenceTimeout;
+		let sequence = [], previousSequence, sequenceTimeout, holdTimeout, debounce;
 
 		this.registerReportListener('CENTRAL_SCENE', 'CENTRAL_SCENE_NOTIFICATION', report => {
 

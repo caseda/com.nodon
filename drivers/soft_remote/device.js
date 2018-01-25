@@ -54,7 +54,7 @@ class SoftRemote extends ZwaveDevice {
 			});
 
 		// Central Scene flow triggers
-		let sequence = [], previousSequence, sequenceTimeout;
+		let sequence = [], previousSequence, sequenceTimeout, holdTimeout, debounce;
 
 		this.registerReportListener('CENTRAL_SCENE', 'CENTRAL_SCENE_NOTIFICATION', report => {
 

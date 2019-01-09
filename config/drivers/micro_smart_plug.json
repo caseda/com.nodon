@@ -281,20 +281,21 @@
 			"type": "number",
 			"zwave": {
 				"index": 26,
-				"size": 1
+				"size": 2,
+				"signed": false
 			},
 			"label": {
 				"en": "Wattage Low Threshold",
 				"nl": "Wattage Laag Drempel"
 			},
 			"hint": {
-				"en": "Below what wattage value does the \"low\" association group (5) get triggerd.\nRange: 0 (Off), 1 - 2000",
-				"nl": "Onder welke wattage waarde word de \"laag\" assoctiatie groep (5) getriggerd.\nBereik: 0 (Uit), 1 - 2000"
+				"en": "Below what wattage value does the \"low\" association group (5) get triggerd.\nRange: 0 (Off), 1 - 65535",
+				"nl": "Onder welke wattage waarde word de \"laag\" assoctiatie groep (5) getriggerd.\nBereik: 0 (Uit), 1 - 65535"
 			},
 			"value": 5,
 			"attr": {
 				"min": 0,
-				"max": 2000
+				"max": 65535
 			}
 		},
 		{
@@ -302,20 +303,21 @@
 			"type": "number",
 			"zwave": {
 				"index": 25,
-				"size": 1
+				"size": 2,
+				"signed": false
 			},
 			"label": {
 				"en": "Wattage High Threshold",
 				"nl": "Wattage Hoog Drempel"
 			},
 			"hint": {
-				"en": "Above what wattage value does the \"high\" association group (4) get triggerd.\nRange: 0 (Off), 1 - 2000",
-				"nl": "Boven welke wattage waarde word de \"hoog\" assoctiatie groep (4) getriggerd.\nBereik: 0 (Uit), 1 - 2000"
+				"en": "Above what wattage value does the \"high\" association group (4) get triggerd.\nRange: 0 (Off), 1 - 65535",
+				"nl": "Boven welke wattage waarde word de \"hoog\" assoctiatie groep (4) getriggerd.\nBereik: 0 (Uit), 1 - 65535"
 			},
 			"value": 20,
 			"attr": {
 				"min": 0,
-				"max": 2000
+				"max": 65535
 			}
 		},
 		{

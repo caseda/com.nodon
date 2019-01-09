@@ -1,0 +1,80 @@
+{
+	"id": "soft_remote",
+	"name": {
+		"en": "Soft Remote",
+		"nl": "Soft Afstandsbediening"
+	},
+	"zwave": {
+		"manufacturerId": 357,
+		"productTypeId": 2,
+		"productId": 2,
+		"learnmode": {
+			"image": "/drivers/soft_remote/assets/learnmode.svg",
+			"instruction": {
+				"en": "Hold button 1 ( ● ) and button 2 ( + ) pressed until LED starts blinking.\nThen tap button 1 ( ● ).",
+				"nl": "Houd knop 1 ( ● ) en knop 2 ( + ) ingedrukt tot de led gaat knipperen\nDruk dan kort op knop 1 ( ● )."
+			}
+		},
+		"associationGroups": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"associationGroupsOptions": {
+			"1": {
+				"hint": {
+					"en": "This is the controller group, it is not recommended to change this.",
+					"nl": "Dit is de controller groep, het is niet aangeraden dit te veranderen."
+				}
+			},
+			"2": {
+				"hint": {
+					"en": "These devices will respond to button 1 ( ● ).",
+					"nl": "Deze apparaten zullen reageren op knop 1 ( ● )."
+				}
+			},
+			"3": {
+				"hint": {
+					"en": "These devices will respond to button 2 ( + ).",
+					"nl": "Deze apparaten zullen reageren op knop 2 ( + )."
+				}
+			},
+			"4": {
+				"hint": {
+					"en": "These devices will respond to button 3 ( ◯ ).",
+					"nl": "Deze apparaten zullen reageren op knop 3 ( ◯ )."
+				}
+			},
+			"5": {
+				"hint": {
+					"en": "These devices will respond to button 4 ( - ).",
+					"nl": "Deze apparaten zullen reageren op knop 4 ( - )."
+				}
+			},
+			"6": {
+				"hint": {
+					"en": "These devices can be controlled with the buttons 1 ( ● ) & 3 ( ◯ ).",
+					"nl": "Deze apparaten kunnen bediend worden met de op knoppen 1 ( ● ) & 3 ( ◯ )."
+				}
+			},
+			"7": {
+				"hint": {
+					"en": "These devices can be controlled with the buttons 2 ( + ) & 4 ( - ).",
+					"nl": "Deze apparaten kunnen bediend worden met de op knoppen 2 ( + ) & 4 ( - )."
+				}
+			}
+		}
+	},
+	"class": "sensor",
+	"capabilities": [
+		"measure_battery"
+	],
+	"images": {
+		"large": "/drivers/soft_remote/assets/images/large.png",
+		"small": "/drivers/soft_remote/assets/images/small.png"
+	}
+}

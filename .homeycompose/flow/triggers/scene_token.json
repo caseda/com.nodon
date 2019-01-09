@@ -1,0 +1,35 @@
+{
+	"id": "scene_token",
+	"title": {
+		"en": "Scene button pressed",
+		"nl": "Scene knop gedrukt"
+	},
+	"hint": {
+		"en": "This flow card will only trigger if the corresponding settings are in \"Scene Mode\"",
+		"nl": "Deze flow kaart activeerd alleen als de overeenkomstig instellingen staat op \"Scene Modus\""
+	},
+	"args": [
+		{
+			"name": "device",
+			"type": "device",
+			"filter": "driver_id=octan_remote|soft_remote|wall_switch"
+		}
+	],
+	"tokens": [
+		{
+			"name": "button",
+			"title": {
+				"en": "button",
+				"nl": "knop"
+			},
+			"example": "1"
+		},
+		{
+			"name": "scene",
+			"title": {
+				"en": "scene"
+			},
+			"example": "Key Pressed 1 time"
+		}
+	]
+}

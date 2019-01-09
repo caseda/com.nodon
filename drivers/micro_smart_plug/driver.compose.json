@@ -1,0 +1,87 @@
+{
+	"id": "micro_smart_plug",
+	"name": {
+		"en": "Micro Smart Plug",
+		"nl": "Mini Tussenstekker"
+	},
+	"zwave": {
+		"manufacturerId": 357,
+		"productTypeId": 1,
+		"productId": 3,
+		"learnmode": {
+			"image": "/drivers/micro_smart_plug/assets/learnmode.svg",
+			"instruction": {
+				"en": "Hold the button for 2 seconds, until the LED lights up red.",
+				"nl": "Houd de knop vast voor 2 seconden, tot de LED rood wordt."
+			}
+		},
+		"defaultConfiguration": [
+			{
+				"id": 21,
+				"size": 1,
+				"value": 50
+			},
+			{
+				"id": 23,
+				"size": 2,
+				"value": 100
+			},
+			{
+				"id": 24,
+				"size": 2,
+				"value": 1800
+			}
+		],
+		"associationGroups": [
+			1
+		],
+		"associationGroupsOptions": {
+			"1": {
+				"hint": {
+					"en": "This is the controller group, it is not recommended to change this.",
+					"nl": "Dit is de controller groep, het is niet aangeraden dit te veranderen."
+				}
+			},
+			"2": {
+				"hint": {
+					"en": "Devices that are added here will follow the micro smart plug on manual switching.\nIE: Turn it on manually, also turns these devices on.",
+					"nl": "Apparaten die hier zijn toegevoegd zullen de mini tussenstekker volgen bij handmatig schakelen\nVB: Zet hem handmatig aan, en zet ook deze apparaten aan."
+				}
+			},
+			"3": {
+				"hint": {
+					"en": "Devices that are added here will follow the micro smart plug reversed on manual switching.\nIE: Turn it on manually, these devices will turn off.",
+					"nl": "Apparaten die hier zijn toegevoegd zullen de mini tussenstekker omgekeerd volgen bij handmatig schakelen\nVB: Zet hem handmatig aan, en deze apparaten gaan uit."
+				}
+			},
+			"4": {
+				"hint": {
+					"en": "Send an \"on\" or \"off\" command to these devices above the certain setting value (Wattage High Threshold).",
+					"nl": "Zend een \"aan\" of \"uit\" commando naar deze apparaten boven de bepaalde setting waarde (Wattage Hoog Drempel)."
+				}
+			},
+			"5": {
+				"hint": {
+					"en": "Send an \"on\" or \"off\" command to these devices below the certain setting value (Wattage Low Threshold)",
+					"nl": "Zend een \"aan\" of \"uit\" commando naar deze apparaten onder de bepaalde setting waarde (Wattage Laag Drempel)."
+				}
+			},
+			"6": {
+				"hint": {
+					"en": "All metering (Wattage and Wattage/hour) values will be send to these devices.",
+					"nl": "Alle meter waardes (Wattage en Wattage/uur) worden verzonden naar deze apparaten."
+				}
+			}
+		}
+	},
+	"class": "socket",
+	"capabilities": [
+		"onoff",
+		"measure_power",
+		"meter_power"
+	],
+	"images": {
+		"large": "/drivers/micro_smart_plug/assets/images/large.png",
+		"small": "/drivers/micro_smart_plug/assets/images/small.png"
+	}
+}

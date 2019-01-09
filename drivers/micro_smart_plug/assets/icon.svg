@@ -1,12 +1,10 @@
-<svg 
-     version="1.1" 
-     xmlns="http://www.w3.org/2000/svg" 
-     xmlns:xlink="http://www.w3.org/1999/xlink" 
-     width="400px" height="686px" 
-     viewBox="0 0 400 686" preserveAspectRatio="none"> 
-   <g> 
-<image width="400" height="686" xlink:href="data:image/gif;base64, 
-R0lGODlhkAGuAvcAAAAAAP///7m5ubW1taampqOjo5qampSUlJGRkZCQkIyMjIuLi4mJiYeHh4SE
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 400 686" style="enable-background:new 0 0 400 686;" xml:space="preserve">
+<g>
+	
+		<image style="overflow:visible;enable-background:new    ;" width="400" height="686" xlink:href="data:image/gif;base64,R0lGODlhkAGuAvcAAAAAAP///7m5ubW1taampqOjo5qampSUlJGRkZCQkIyMjIuLi4mJiYeHh4SE
 hIKCgoGBgYCAgH5+fn19fXx8fHp6enl5eXh4eHd3d3Z2dnV1dXR0dHNzc3JycnFxcXBwcG5ubm1t
 bWtra2pqamhoaGdnZ2ZmZmVlZWRkZGNjY2JiYmFhYWBgYF9fX15eXl1dXVxcXFtbW1paWllZWVhY
 WFdXV1ZWVlVVVVRUVFNTU1JSUlFRUVBQUE9PT05OTk1NTUxMTEtLS0pKSklJSUhISEdHR0ZGRkVF
@@ -235,8 +233,7 @@ KiVHsXCpMuKWrLqWuWppyzXCcpdy1KUvhQjMYNZwmMQ8oTGPqcFkKtOBzGymAJ8JTfpJc5rnq6Y1
 t4fNbD5vm9wEnje/KbtwipN05Cyn5c6JzsCpc51sa6c7rwbPeArNfpak5zvfh0h8VuueeuPn/jip
 FUdmEqD9FOh/HmlQb1ExPgDAwz4X+isvFtE0TCioRJNFUVRKKaIZHeRZztbAj4ZPRIcbKUmtFxk+
 ki+lKhWeP11az88BgJIKlSm2aho2ABwCozjVaCU9+tNhbVKoQwXqvBB6VKb1raFLLenXnupClkk1
-ifaCV0AAADs=
-"/> 
-   </g> 
-</svg>	
-
+ifaCV0AAADs=" transform="matrix(1 0 0 1 0 -6.728313e-06)">
+	</image>
+</g>
+</svg>

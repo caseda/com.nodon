@@ -1,0 +1,80 @@
+{
+	"id": "wall_switch",
+	"name": {
+		"en": "Wall Switch",
+		"nl": "Muur Schakelaar"
+	},
+	"zwave": {
+		"manufacturerId": 357,
+		"productTypeId": 2,
+		"productId": 3,
+		"learnmode": {
+			"image": "/drivers/wall_switch/assets/learnmode.svg",
+			"instruction": {
+				"en": "Hold button 1 ( Upper-Left ) and button 2 ( Upper-Right ) pressed until LED starts blinking.\nThen tap button 1 ( Upper-Left ).",
+				"nl": "Houd knop 1 ( Links-Boven ) en knop 2 ( Rechts-Boven ) ingedrukt tot de led gaat knipperen\nDruk dan kort op knop 1 ( Links-Boven )."
+			}
+		},
+		"associationGroups": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"associationGroupsOptions": {
+			"1": {
+				"hint": {
+					"en": "This is the controller group, it is not recommended to change this.",
+					"nl": "Dit is de controller groep, het is niet aangeraden dit te veranderen."
+				}
+			},
+			"2": {
+				"hint": {
+					"en": "These devices will respond to button 1 ( Upper-Left ).",
+					"nl": "Deze apparaten zullen reageren op knop 1 ( Links-Boven )."
+				}
+			},
+			"3": {
+				"hint": {
+					"en": "These devices will respond to button 2 ( Upper-Right ).",
+					"nl": "Deze apparaten zullen reageren op knop 2 ( Rechts-Boven )."
+				}
+			},
+			"4": {
+				"hint": {
+					"en": "These devices will respond to button 3 ( Lower-Left ).",
+					"nl": "Deze apparaten zullen reageren op knop 3 ( Links-Onder )."
+				}
+			},
+			"5": {
+				"hint": {
+					"en": "These devices will respond to button 4 ( Lower-Right ).",
+					"nl": "Deze apparaten zullen reageren op knop 4 ( Rechts-Onder )."
+				}
+			},
+			"6": {
+				"hint": {
+					"en": "These devices can be controlled with the buttons 1 ( Upper-Left ) & 3 ( Lower-Left ).",
+					"nl": "Deze apparaten kunnen bediend worden met de op knoppen 1 ( Links-Boven ) & 3 ( Links-Onder )."
+				}
+			},
+			"7": {
+				"hint": {
+					"en": "These devices can be controlled with the buttons 2 ( Upper-Right ) & 4 ( Lower-Right ).",
+					"nl": "Deze apparaten kunnen bediend worden met de op knoppen 2 ( Rechts-Boven ) & 4 ( Rechts-Onder )."
+				}
+			}
+		}
+	},
+	"class": "sensor",
+	"capabilities": [
+		"measure_battery"
+	],
+	"images": {
+		"large": "/drivers/wall_switch/assets/images/large.png",
+		"small": "/drivers/wall_switch/assets/images/small.png"
+	}
+}

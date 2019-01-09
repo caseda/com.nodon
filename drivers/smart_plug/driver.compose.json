@@ -1,0 +1,87 @@
+{
+	"id": "smart_plug",
+	"name": {
+		"en": "Smart Plug",
+		"nl": "Tussenstekker"
+	},
+	"zwave": {
+		"manufacturerId": 357,
+		"productTypeId": 1,
+		"productId": 1,
+		"learnmode": {
+			"image": "/drivers/smart_plug/assets/learnmode.svg",
+			"instruction": {
+				"en": "Hold the button for 2 seconds, until the LED lights up red.",
+				"nl": "Houd de knop vast voor 2 seconden, tot de LED rood wordt."
+			}
+		},
+		"defaultConfiguration": [
+			{
+				"id": 2,
+				"size": 1,
+				"value": 1
+			}
+		],
+		"associationGroups": [
+			1
+		],
+		"associationGroupsOptions": {
+			"1": {
+				"hint": {
+					"en": "This is the controller group, it is not recommended to change this.",
+					"nl": "Dit is de controller groep, het is niet aangeraden dit te veranderen."
+				}
+			},
+			"2": {
+				"hint": {
+					"en": "Devices that are added here will follow the smart plug on manual switching.\nIE: Turn it on manually, also turns these devices on.",
+					"nl": "Apparaten die hier zijn toegevoegd zullen de tussenstekker volgen bij handmatig schakelen\nVB: Zet hem handmatig aan, en zet ook deze apparaten aan."
+				}
+			},
+			"3": {
+				"hint": {
+					"en": "Devices that are added here will follow the smart plug reversed on manual switching.\nIE: Turn it on manually, these devices will turn off.",
+					"nl": "Apparaten die hier zijn toegevoegd zullen de tussenstekker omgekeerd volgen bij handmatig schakelen\nVB: Zet hem handmatig aan, en deze apparaten gaan uit."
+				}
+			},
+			"4": {
+				"hint": {
+					"en": "Devices that are added here will receive a notification in case of a power failure/restore.",
+					"nl": "Apparaten die hier zijn toegevoegd krijgen een notificatie bij een stroomuitval/herstel."
+				}
+			},
+			"5": {
+				"hint": {
+					"en": "Devices that are added here will receive the \"on\" command in case of a power failure.",
+					"nl": "Apparaten die hier zijn toegevoegd krijgen een \"aan\" commando bij een stroomuitval."
+				}
+			},
+			"6": {
+				"hint": {
+					"en": "Devices that are added here will receive the \"off\" command in case of a power failure.",
+					"nl": "Apparaten die hier zijn toegevoegd krijgen een \"uit\" commando bij een stroomuitval."
+				}
+			},
+			"7": {
+				"hint": {
+					"en": "Devices that are added here will receive the \"on\" command when power gets restored.",
+					"nl": "Apparaten die hier zijn toegevoegd krijgen een \"aan\" commando wanneer stroom weer word hersteld."
+				}
+			},
+			"8": {
+				"hint": {
+					"en": "Devices that are added here will receive the \"off\" command when power gets restored.",
+					"nl": "Apparaten die hier zijn toegevoegd krijgen een \"uit\" commando wanneer stroom weer word hersteld."
+				}
+			}
+		}
+	},
+	"class": "socket",
+	"capabilities": [
+		"onoff"
+	],
+	"images": {
+		"large": "/drivers/smart_plug/assets/images/large.png",
+		"small": "/drivers/smart_plug/assets/images/small.png"
+	}
+}

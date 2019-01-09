@@ -4,7 +4,8 @@
     "en": "NodOn"
   },
   "sdk": 2,
-  "version": "2.0.1",
+  "brandColor": "#f06c1a",
+  "version": "2.0.2",
   "compatibility": ">=1.5.0",
   "description": {
     "en": "NodOn Z-Wave devices for Homey",
@@ -31,11 +32,70 @@
       }
     }
   },
-  "bugs": {
-    "url": "https://github.com/caseda/com.nodon/issues"
-  },
+  "homeyCommunityTopicId": 5554,
   "flow": {
     "triggers": [
+      {
+        "id": "button_sequence",
+        "title": {
+          "en": "Button sequence",
+          "nl": "Knoppen reeks"
+        },
+        "hint": {
+          "en": "Separate the buttons ( 1 - 4 ) of the sequence with a comma ( , ) or semicolon ( ; ), 2x the same button after each other is not possible.\n\nThis flow card will only trigger if the corresponding settings are in \"Scene Mode\".\nAnd the sequence setting activated.",
+          "nl": "Verdeel de Knoppen ( 1 - 4 ) van de reeks met een komma ( , ) of puntkomma ( ; ), 2x dezelfde knop achter elkaar is niet mogelijk.\n\nDeze flow kaart activeerd alleen als de overeenkomstig instellingen staat op \"Scene Modus\"\nEn de reeks setting geactiveerd."
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=octan_remote|soft_remote|wall_switch"
+          },
+          {
+            "name": "sequence",
+            "type": "text",
+            "placeholder": {
+              "en": "example sequence: 1, 2, 3",
+              "nl": "voorbeeld reeks: 1, 2, 3"
+            }
+          }
+        ]
+      },
+      {
+        "id": "scene_token",
+        "title": {
+          "en": "Scene button pressed",
+          "nl": "Scene knop gedrukt"
+        },
+        "hint": {
+          "en": "This flow card will only trigger if the corresponding settings are in \"Scene Mode\"",
+          "nl": "Deze flow kaart activeerd alleen als de overeenkomstig instellingen staat op \"Scene Modus\""
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=octan_remote|soft_remote|wall_switch"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "button",
+            "title": {
+              "en": "button",
+              "nl": "knop"
+            },
+            "example": "1"
+          },
+          {
+            "name": "scene",
+            "title": {
+              "en": "scene"
+            },
+            "example": "Key Pressed 1 time"
+          }
+        ]
+      },
       {
         "id": "octan_remote",
         "title": {
@@ -48,8 +108,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=octan_remote"
           },
           {
@@ -137,12 +197,12 @@
         },
         "hint": {
           "en": "This flow card will only trigger if the remote's settings are in \"Single Button Mode\" or \"Dual Button Mode\", triggers on all buttons that are in these modes",
-          "nl": "Deze flow kaart activeerd alleen als de Afstandbediening zijn instellingen staan op \"Enkele Knop Modus\" of \"Dubbele Knop Modus\", activeerd bij alle knoppen die in deze modus zijn"
+          "nl": "Deze flow kaart activeerd alleen als de afstandbediening zijn instellingen staan op \"Enkele Knop Modus\" of \"Dubbele Knop Modus\", activeerd bij alle knoppen die in deze modus zijn"
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=octan_remote"
           },
           {
@@ -189,67 +249,6 @@
         ]
       },
       {
-        "id": "scene_token",
-        "title": {
-          "en": "Scene button pressed",
-          "nl": "Scene knop gedrukt"
-        },
-        "hint": {
-          "en": "This flow card will only trigger if the corresponding settings are in \"Scene Mode\"",
-          "nl": "Deze flow kaart activeerd alleen als de overeenkomstig instellingen staat op \"Scene Modus\""
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=octan_remote|soft_remote|wall_switch"
-          }
-        ],
-        "tokens": [
-          {
-            "name": "button",
-            "title": {
-              "en": "button",
-              "nl": "knop"
-            },
-            "example": "1"
-          },
-          {
-            "name": "scene",
-            "title": {
-              "en": "scene"
-            },
-            "example": "Key Pressed 1 time"
-          }
-        ]
-      },
-      {
-        "id": "button_sequence",
-        "title": {
-          "en": "Button sequence",
-          "nl": "Knoppen reeks"
-        },
-        "hint": {
-          "en": "Separate the buttons ( 1 - 4 ) of the sequence with a comma ( , ) or semicolon ( ; ), 2x the same button after each other is not possible.\n\nThis flow card will only trigger if the corresponding settings are in \"Scene Mode\".\nAnd the sequence setting activated.",
-          "nl": "Verdeel de Knoppen ( 1 - 4 ) van de reeks met een komma ( , ) of puntkomma ( ; ), 2x dezelfde knop achter elkaar is niet mogelijk.\n\nDeze flow kaart activeerd alleen als de overeenkomstig instellingen staat op \"Scene Modus\"\nEn de reeks setting geactiveerd."
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=octan_remote|soft_remote|wall_switch"
-          },
-          {
-            "name": "sequence",
-            "type": "text",
-            "placeholder": {
-              "en": "example sequence: 1, 2, 3",
-              "nl": "voorbeeld reeks: 1, 2, 3"
-            }
-          }
-        ]
-      },
-      {
         "id": "smart_plug_powerfail",
         "title": {
           "en": "Power was interupted",
@@ -261,8 +260,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=smart_plug"
           }
         ]
@@ -279,8 +278,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=smart_plug"
           }
         ]
@@ -297,8 +296,8 @@
         },
         "args": [
           {
-            "name": "soft_remote",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=soft_remote"
           },
           {
@@ -390,8 +389,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=soft_remote"
           },
           {
@@ -449,8 +448,8 @@
         },
         "args": [
           {
-            "name": "wall_switch",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=wall_switch"
           },
           {
@@ -542,8 +541,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=wall_switch"
           },
           {
@@ -592,24 +591,6 @@
     ],
     "actions": [
       {
-        "id": "micro_smart_plug_reset_meter",
-        "title": {
-          "en": "Deprecated - Reset meter",
-          "nl": "Verouderd - Meters opnieuw instellen"
-        },
-        "hint": {
-          "en": "This card is Deprecated, please use the new reset meter card.\n\nThis card will be deleted in the near future.",
-          "nl": "Deze kaart is verouderd, gebruik alsjeblieft de nieuwe reset meter kaart.\n\nDeze kaart zal in de toekomst worden verwijderd."
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=micro_smart_plug"
-          }
-        ]
-      },
-      {
         "id": "resetMeter",
         "title": {
           "en": "Reset meter values",
@@ -621,8 +602,8 @@
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
             "filter": "driver_id=micro_smart_plug"
           }
         ]
@@ -833,8 +814,8 @@
             "nl": "Wattage Drempel"
           },
           "hint": {
-            "en": "How much percent must the wattage change compared to the last report, before it is being send.",
-            "nl": "Hoeveel procent moet de wattage veranderen vergeleken met de laatste raport, voor het wordt verzonden."
+            "en": "How much percent must the wattage change compared to the last report, before it is being send.\n\nDefault: 50%",
+            "nl": "Hoeveel procent moet de wattage veranderen vergeleken met de laatste raport, voor het wordt verzonden.\n\nStandaard: 50%"
           },
           "value": 50,
           "attr": {
@@ -854,8 +835,8 @@
             "nl": "Overbelastings Beveiliging"
           },
           "hint": {
-            "en": "Determine above what wattage the micro smart plug must turn off.\nRange: 0 (disabled), 1 - 2000 Watt",
-            "nl": "Bepaal boven welke wattage de mini tussenstekker uit moet zetten.\nBereik: 0 (uit), 1 - 2000 Watt"
+            "en": "Determine above what wattage the micro smart plug must turn off.\n\nOff: 0\nDefault: 2000 Watt",
+            "nl": "Bepaal boven welke wattage de mini tussenstekker uit moet zetten.\n\nUit: 0\nStandaard: 2000 Watt"
           },
           "value": 2000,
           "attr": {
@@ -876,8 +857,8 @@
             "nl": "kWh Drempel"
           },
           "hint": {
-            "en": "Determine how much the kWh must change before it is being send.\nRange: 0 (Off), 0.01 - 65.35 kWh",
-            "nl": "Bepaal hoeveel de kWh moet veranderen voor het wordt verzonden.\nBereik: 0 (Uit), 0.01 - 65.35 kWh"
+            "en": "Determine how much the kWh must change before it is being send.\n\nOff: 0\nDefault: 0.1 kWh",
+            "nl": "Bepaal hoeveel de kWh moet veranderen voor het wordt verzonden.\n\nUit: 0\nStandaard: 0.1 kWh"
           },
           "value": 0.1,
           "attr": {
@@ -895,12 +876,12 @@
             "signed": false
           },
           "label": {
-            "en": "Interval Meterning Values",
+            "en": "Interval Metering Values",
             "nl": "Interval Meter Waardes"
           },
           "hint": {
-            "en": "What is the interval (in seconds) all metering values (Wattage and KiloWattHour) are being send.\nRange: 0 (Off), 1 - 65535 seconds",
-            "nl": "Welk interval (in seconden) worden alle meter waardes (Wattage en KiloWattUur) verzonden.\nBereik: 0 (Uit), 1 - 65535 seconden"
+            "en": "What is the interval (in seconds) all metering values (Wattage and KiloWattHour) are being send.\n\nOff: 0\nDefault: 1800 seconds",
+            "nl": "Welk interval (in seconden) worden alle meter waardes (Wattage en KiloWattUur) verzonden.\n\nUit: 0\nStandaard: 1800 seconden"
           },
           "value": 1800,
           "attr": {
@@ -921,8 +902,8 @@
             "nl": "Wattage Laag Drempel"
           },
           "hint": {
-            "en": "Below what wattage value does the \"low\" association group (5) get triggerd.\nRange: 0 (Off), 1 - 65535",
-            "nl": "Onder welke wattage waarde word de \"laag\" assoctiatie groep (5) getriggerd.\nBereik: 0 (Uit), 1 - 65535"
+            "en": "Below what wattage value does the \"low\" association group (5) get triggerd.\n\nOff: 0\nDefault: 5 Watt",
+            "nl": "Onder welke wattage waarde word de \"laag\" assoctiatie groep (5) getriggerd.\n\nUit: 0\nStandaard: 5 Watt"
           },
           "value": 5,
           "attr": {
@@ -943,8 +924,8 @@
             "nl": "Wattage Hoog Drempel"
           },
           "hint": {
-            "en": "Above what wattage value does the \"high\" association group (4) get triggerd.\nRange: 0 (Off), 1 - 65535",
-            "nl": "Boven welke wattage waarde word de \"hoog\" assoctiatie groep (4) getriggerd.\nBereik: 0 (Uit), 1 - 65535"
+            "en": "Above what wattage value does the \"high\" association group (4) get triggerd.\n\nOff: 0\nDefault: 20 Watt",
+            "nl": "Boven welke wattage waarde word de \"hoog\" assoctiatie groep (4) getriggerd.\n\nUit: 0\nStandaard: 20 Watt"
           },
           "value": 20,
           "attr": {
@@ -1263,8 +1244,8 @@
             "nl": "Reeks Timeout"
           },
           "hint": {
-            "en": "Determine how many seconds you have between every button push for a sequence, also keep the signal receiving time in mind.\nRange: 0.1 - 5.0 seconds",
-            "nl": "Bepaal hoeveel seconden je hebt tussen het drukken van knoppen voor een reeks, houd rekening met het signaal ontvangst tijd.\nBereik: 0,1 - 5,0 seconden"
+            "en": "Determine how many seconds you have between every button push for a sequence, also keep the signal receiving time in mind.\n\nDefault: 2 seconds",
+            "nl": "Bepaal hoeveel seconden je hebt tussen het drukken van knoppen voor een reeks, houd rekening met het signaal ontvangst tijd.\n\nStandaard: 2 seconden"
           },
           "value": 2,
           "attr": {
@@ -1791,8 +1772,8 @@
             "nl": "Reeks Timeout"
           },
           "hint": {
-            "en": "Determine how many seconds you have between every button push for a sequence, also keep the signal receiving time in mind.\nRange: 0.1 - 5.0 seconds",
-            "nl": "Bepaal hoeveel seconden je hebt tussen het drukken van knoppen voor een reeks, houd rekening met het signaal ontvangst tijd.\nBereik: 0,1 - 5,0 seconden"
+            "en": "Determine how many seconds you have between every button push for a sequence, also keep the signal receiving time in mind.\n\nDefault: 2 seconds",
+            "nl": "Bepaal hoeveel seconden je hebt tussen het drukken van knoppen voor een reeks, houd rekening met het signaal ontvangst tijd.\n\nStandaard: 2 seconden"
           },
           "value": 2,
           "attr": {
@@ -2031,8 +2012,8 @@
             "nl": "Reeks Timeout"
           },
           "hint": {
-            "en": "Determine how many seconds you have between every button push for a sequence, also keep the signal receiving time in mind.\nRange: 0.1 - 5.0 seconds",
-            "nl": "Bepaal hoeveel seconden je hebt tussen het drukken van knoppen voor een reeks, houd rekening met het signaal ontvangst tijd.\nBereik: 0,1 - 5,0 seconden"
+            "en": "Determine how many seconds you have between every button push for a sequence, also keep the signal receiving time in mind.\n\nDefault: 2 seconds",
+            "nl": "Bepaal hoeveel seconden je hebt tussen het drukken van knoppen voor een reeks, houd rekening met het signaal ontvangst tijd.\n\nStandaard: 2 seconden"
           },
           "value": 2,
           "attr": {

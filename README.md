@@ -33,6 +33,15 @@ Sequence's buttons can be separated by a comma ( , ) or a semicolon ( ; ).
 The buttons/switches themselves are in number, ranging from 1 to 4, going from left to right, top to bottom respectively.
 
 ### Change Log:
+**2.0.2:**
+- Visual improvements for Homey V2
+- Using the new Homey composer now
+- Update mesh-driver (v1.2.28)
+
+Micro Smart Plug:
+- Fix a few settings their range
+- Removed the deprecated reset meter card
+
 **2.0.1:**
 Octan Remote, Soft Remote and Wall Switch:
 - Add (software based) sequence support.

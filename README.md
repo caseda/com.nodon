@@ -34,9 +34,9 @@ The buttons/switches themselves are in number, ranging from 1 to 4, going from l
 
 ### Change Log:
 **2.0.2:**
-- Visual improvements for Homey V2
+- Visual improvements for Homey V2 (still need to do icons)
 - Using the new Homey composer now
-- Update mesh-driver (v1.2.28)
+- Update mesh-driver (v1.2.29)
 
 Micro Smart Plug:
 - Fix a few settings their range

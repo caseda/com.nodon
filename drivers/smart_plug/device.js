@@ -98,7 +98,7 @@ class SmartPlug extends ZwaveDevice {
 			if(report.hasOwnProperty('Notification Type') &&
 				report['Notification Type'] === 'Power Management' &&
 				report.hasOwnProperty('Event')) {
-					if (report.Event === 2) this._smartPlugPowerFail.trigger(this, null, null);
+					if (report.Event === 2) this.smartPlugPowerFail.trigger(this, null, null);
 					if (report.Event === 3) {
 						this.smartPlugPowerRestore.trigger(this, null, null);
 						sendIndicator(this, value)

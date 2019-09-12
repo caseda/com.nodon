@@ -33,10 +33,15 @@ Sequence's buttons can be separated by a comma ( , ) or a semicolon ( ; ).
 The buttons/switches themselves are in number, ranging from 1 to 4, going from left to right, top to bottom respectively.
 
 ### Change Log:
+**2.0.3:**
+- [Smart Plug] fix the app crashing when triggering on "power lost".
+- Fix all icons not showing in the app.
+- Update meshdriver to v1.3.3
+
 **2.0.2:**
 - Visual improvements for Homey V2 (still need to do icons)
 - Using the new Homey composer now
-- Update mesh-driver (v1.2.29)
+- Update meshdriver to v1.2.29
 
 Micro Smart Plug:
 - Fix a few settings their range

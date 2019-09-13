@@ -1429,8 +1429,8 @@
                 "size": 1
               },
               "label": {
-                "en": "2: Follow State",
-                "nl": "2: Volg Status"
+                "en": "Group 2: Follow State",
+                "nl": "Groep 2: Volg Status"
               },
               "hint": {
                 "en": "Determine if the devices in association group 2 should follow the plug's state.",
@@ -1446,8 +1446,8 @@
                 "size": 1
               },
               "label": {
-                "en": "3: Follow State Manual",
-                "nl": "3: Volg Status Handmatig"
+                "en": "Group 3: Follow State Manual",
+                "nl": "Groep 3: Volg Status Handmatig"
               },
               "hint": {
                 "en": "Determine if the devices in association group 3 should follow the plug's state when switching manually.",
@@ -1463,8 +1463,8 @@
                 "size": 1
               },
               "label": {
-                "en": "4: Power Failure Notification",
-                "nl": "4: Stroomuitval notificatie"
+                "en": "Group 4: Power Failure Notification",
+                "nl": "Groep 4: Stroomuitval notificatie"
               },
               "hint": {
                 "en": "Determine if a power failure notification is being send to association group 4.",
@@ -1480,8 +1480,8 @@
                 "size": 1
               },
               "label": {
-                "en": "5: On Command on Power Failure",
-                "nl": "5: Aan Commando bij Stroomuitval"
+                "en": "Group 5: On Command on Power Failure",
+                "nl": "Groep 5: Aan Commando bij Stroomuitval"
               },
               "hint": {
                 "en": "Determine if the \"on\" command is being send to association group 5 on power failure.",
@@ -1497,8 +1497,8 @@
                 "size": 1
               },
               "label": {
-                "en": "6: Off Command on Power Failure",
-                "nl": "6: Uit Commando bij Stroomuitval"
+                "en": "Group 6: Off Command on Power Failure",
+                "nl": "Groep 6: Uit Commando bij Stroomuitval"
               },
               "hint": {
                 "en": "Determine if the \"off\" command is being send to association group 6 on power failure.",
@@ -1514,8 +1514,8 @@
                 "size": 1
               },
               "label": {
-                "en": "7: On Command on Power Resume",
-                "nl": "7: Aan Commando bij Hervatten Stroom"
+                "en": "Group 7: On Command on Power Resume",
+                "nl": "Groep 7: Aan Commando bij Hervatten Stroom"
               },
               "hint": {
                 "en": "Determine if the \"on\" command is being send to association group 7 when power gets recovered again.",
@@ -1531,8 +1531,8 @@
                 "size": 1
               },
               "label": {
-                "en": "8: Off Command on Power Resume",
-                "nl": "8: Uit Commando bij Hervatten Stroom"
+                "en": "Group 8: Off Command on Power Resume",
+                "nl": "Groep 8: Uit Commando bij Hervatten Stroom"
               },
               "hint": {
                 "en": "Determine if the \"off\" command is being send to association group 8 when power gets recovered again.",

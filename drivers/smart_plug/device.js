@@ -63,7 +63,7 @@ class SmartPlug extends ZwaveDevice {
 			value += (this.getSetting('enable_group_7')) ? 16 : 0;
 			value += (this.getSetting('enable_group_8')) ? 32 : 0;
 
-			return new Buffer([value]);
+			return new Buffer([1 + value]);
 		});
 
 		this.registerSetting('power_failure_group_7', value => {
@@ -73,7 +73,7 @@ class SmartPlug extends ZwaveDevice {
 			value += (this.getSetting('enable_group_7')) ? 8 : 0;
 			value += (this.getSetting('enable_group_8')) ? 32 : 0;
 
-			return new Buffer([value]);
+			return new Buffer([1 + value]);
 		});
 
 		this.registerSetting('power_failure_group_8', value => {
@@ -83,7 +83,7 @@ class SmartPlug extends ZwaveDevice {
 			value += (this.getSetting('enable_group_6')) ? 8 : 0;
 			value += (this.getSetting('enable_group_7')) ? 16 : 0;
 
-			return new Buffer([value]);
+			return new Buffer(1 + value]);
 		});
 
 		// Flows

@@ -83,7 +83,7 @@ class SmartPlug extends ZwaveDevice {
 			value += (this.getSetting('enable_group_6')) ? 8 : 0;
 			value += (this.getSetting('enable_group_7')) ? 16 : 0;
 
-			return new Buffer(1 + value]);
+			return new Buffer([1 + value]);
 		});
 
 		// Flows

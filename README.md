@@ -33,6 +33,9 @@ Sequence's buttons can be separated by a comma ( , ) or a semicolon ( ; ).
 The buttons/switches themselves are in number, ranging from 1 to 4, going from left to right, top to bottom respectively.
 
 ### Change Log:
+**2.1.0:**
+- Add battery types, for Homey v3's Energy
+
 **2.0.3:**
 - [Smart Plug] fix the app crashing when triggering on "power lost".
 - Fix all icons not showing in the app.

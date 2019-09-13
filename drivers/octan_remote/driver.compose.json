@@ -4,6 +4,11 @@
 		"en": "Octan Remote",
 		"nl": "Octan Afstandsbediening"
 	},
+	"energy": {
+		"batteries": [
+			"CR2032"
+		]
+	},
 	"zwave": {
 		"manufacturerId": 357,
 		"productTypeId": 2,

@@ -5,8 +5,8 @@
   },
   "sdk": 2,
   "brandColor": "#f06c1a",
-  "version": "2.0.3",
-  "compatibility": ">=1.5.0",
+  "version": "2.1.0",
+  "compatibility": ">=3.0.0",
   "description": {
     "en": "NodOn Z-Wave devices for Homey",
     "nl": "NodOn Z-Wave apparaten voor Homey"
@@ -1021,6 +1021,11 @@
         "en": "Octan Remote",
         "nl": "Octan Afstandsbediening"
       },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
       "zwave": {
         "manufacturerId": 357,
         "productTypeId": 2,
@@ -1550,6 +1555,11 @@
         "en": "Soft Remote",
         "nl": "Soft Afstandsbediening"
       },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
       "zwave": {
         "manufacturerId": 357,
         "productTypeId": 2,
@@ -1789,6 +1799,11 @@
       "name": {
         "en": "Wall Switch",
         "nl": "Muur Schakelaar"
+      },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
       },
       "zwave": {
         "manufacturerId": 357,

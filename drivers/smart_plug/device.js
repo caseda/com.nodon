@@ -88,22 +88,23 @@ class SmartPlug extends ZwaveDevice {
 
 		// Flows
 		let smartPlugPowerFail = new Homey.FlowCardTriggerDevice('smart_plug_powerfail');
-		smartPlugPowerFail.register();
-
+		smartPlugPowerFail
+			.register();
 		let smartPlugPowerRestore = new Homey.FlowCardTriggerDevice('smart_plug_powerrestore');
-		smartPlugPowerRestore.register();
+		smartPlugPowerRestore
+			.register();
 
 		// Notification flow triggers
-		this.registerReportListener('NOTIFICATION', 'NOTIFICATION_REPORT', report => {
+		this.registerReportListener('NOTIFICATION', 'NOTIFICATION_REPORT', async report => {
 			if(report.hasOwnProperty('Notification Type') &&
 				report['Notification Type'] === 'Power Management' &&
 				report.hasOwnProperty('Event')) {
-					if (report.Event === 2) this.smartPlugPowerFail.trigger(this, null, null);
+					if (report.Event === 2) smartPlugPowerFail.trigger(this, null, null);
 					if (report.Event === 3) {
-						this.smartPlugPowerRestore.trigger(this, null, null);
-						sendIndicator(this, value)
+						smartPlugPowerRestore.trigger(this, null, null);
+						await sendIndicator(this, this.getSetting('led_indicator'))
 							.then(sendValue => {
-								this.log('led_indicator succesfully send:', sendValue);
+								this.log('led_indicator succesfully synced:', sendValue);
 							})
 							.catch(err => {
 								this.error('led_indicator failed');

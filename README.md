@@ -36,7 +36,7 @@ The buttons/switches themselves are in number, ranging from 1 to 4, going from l
 **2.0.3:**
 - [Smart Plug] fix the app crashing when triggering on "power lost".
 - Fix all icons not showing in the app.
-- Update meshdriver to v1.3.3
+- Update meshdriver to v1.3.4
 
 **2.0.2:**
 - Visual improvements for Homey V2 (still need to do icons)

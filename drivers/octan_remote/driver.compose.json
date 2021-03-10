@@ -74,10 +74,9 @@
 			}
 		}
 	},
-	"class": "sensor",
+	"class": "remote",
 	"capabilities": [
-		"measure_battery",
-		"alarm_battery"
+		"measure_battery"
 	],
 	"images": {
 		"large": "/drivers/octan_remote/assets/images/large.png",

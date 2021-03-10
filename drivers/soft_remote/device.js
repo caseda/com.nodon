@@ -1,80 +1,47 @@
 'use strict';
 
-const Homey = require('homey');
-const ZwaveDevice = require('homey-meshdriver').ZwaveDevice;
+const {ZwaveDevice} = require('homey-zwavedriver');
 
 class SoftRemote extends ZwaveDevice {
-	async onMeshInit() {
+	async onNodeInit() {
 		//this.printNode();
 		//this.enableDebug();
 
-		// Capabilities
+		// Register
+		this._softRemoteScene = this.driver.softRemoteScene;
+		this._softRemoteSceneToken = this.homey.app.sceneTokenRegister;
+		this._softRemoteNonScene = this.driver.softRemoteNonScene;
+		this._softRemoteSequence = this.homey.app.sequenceRegister;
+
+		// Register Capabilities
 		this.registerCapability('measure_battery', 'BATTERY');
 
-		// Flows
-		let softRemoteScene = new Homey.FlowCardTriggerDevice('soft_remote');
-		softRemoteScene
-			.register()
-			.registerRunListener((args, state) => {
-				if (args.hasOwnProperty('button') && args.hasOwnProperty('scene') && state.hasOwnProperty('button') && state.hasOwnProperty('scene')) {
-					return Promise.resolve(args.button === state.button && args.scene === state.scene);
-				}
-				return Promise.resolve(false);
-			});
-
-		let softRemoteSceneToken = new Homey.FlowCardTriggerDevice('scene_token');
-		softRemoteSceneToken
-			.register();
-
-		let softRemoteNonScene = new Homey.FlowCardTriggerDevice('soft_remote_nonscene');
-		softRemoteNonScene
-			.register()
-			.registerRunListener((args, state) => {
-				if (args.hasOwnProperty('value') && state.hasOwnProperty('value')) {
-					return Promise.resolve(args.value === state.value);
-				}
-				return Promise.resolve(false);
-			});
-
-		let softRemoteSequence = new Homey.FlowCardTriggerDevice('button_sequence');
-		softRemoteSequence
-			.register()
-			.registerRunListener((args, state) => {
-
-				if (args.hasOwnProperty('sequence') && state.hasOwnProperty('sequence')) {
-					const userSequence = args.sequence.split(/[ ,;]+/).map(Number);
-					let countSameButton = 0;
-
-					for (let i = 0; i < userSequence.length; i++) {
-						if (userSequence[i] === state.sequence[i]) countSameButton++;
-					}
-					return Promise.resolve(countSameButton === userSequence.length);
-				}
-				return Promise.resolve(false);
-			});
+		if (this.hasCapability('alarm_battery')) {
+			this.removeCapability('alarm_battery');
+		}
 
 		// Central Scene flow triggers
-		let sequence = [], previousSequence, sequenceTimeout, holdTimeout, debounce;
+		let sequence = [], previousSequence, sequenceTimeout, holdTimeout, debounce, throttle;
 
 		this.registerReportListener('CENTRAL_SCENE', 'CENTRAL_SCENE_NOTIFICATION', report => {
-
-			if(report.hasOwnProperty('Properties1') && report.Properties1.hasOwnProperty('Key Attributes') && report.hasOwnProperty('Scene Number')) {
-
+			if (
+				report.Properties1['Key Attributes'] !== undefined
+				&& report['Scene Number'] !== undefined
+			) {
 				const remoteValue = {
-					button: report['Scene Number'].toString(),
+					button: '' + report['Scene Number'],
 					scene: report.Properties1['Key Attributes']
 				};
 
 				// Sequence activation
 				if (this.getSetting('sequence_activation') && report.Properties1['Key Attributes'] === 'Key Pressed 1 time') {
-
 					if (!previousSequence || previousSequence + 1 === report['Sequence Number']) {
 						previousSequence = report['Sequence Number'];
 						sequence.push(report['Scene Number']);
 
 					} else {
-						softRemoteScene.trigger(this, null, remoteValue);
-						softRemoteSceneToken.trigger(this, remoteValue, null);
+						this._softRemoteScene.trigger(this, null, remoteValue);
+						this._softRemoteSceneToken.trigger(this, remoteValue, null);
 
 						sequence = [];
 						previousSequence = null;
@@ -88,23 +55,29 @@ class SoftRemote extends ZwaveDevice {
 
 					sequenceTimeout = setTimeout(() => {
 						if (sequence.length === 1) {
-							softRemoteScene.trigger(this, null, remoteValue);
-							softRemoteSceneToken.trigger(this, remoteValue, null);
+							this._softRemoteScene.trigger(this, null, remoteValue);
+							this._softRemoteSceneToken.trigger(this, remoteValue, null);
 
-						} else softRemoteSequence.trigger(this, null, { sequence: sequence });
+						} else this._softRemoteSequence.trigger(this, null, { sequence: sequence });
 
 						sequence = [];
 						previousSequence = null;
 					}, this.getSetting('sequence_timeout') * 1000 || 2000);
 
 				// Hold key Scene activation
-				} else if(report.Properties1['Key Attributes'] === 'Key Held Down') {
-					softRemoteScene.trigger(this, null, remoteValue);
-					softRemoteSceneToken.trigger(this, remoteValue, null);
+				} else if (report.Properties1['Key Attributes'] === 'Key Held Down') {
+					if (!throttle) {
+						this._softRemoteScene.trigger(this, null, remoteValue);
+						this._softRemoteSceneToken.trigger(this, remoteValue, null);
+
+						throttle = setTimeout(() => {
+							throttle = false;
+						}, 1000);
+					}
 
 					remoteValue.scene = 'Key Held Down Single';
 					if (!debounce) {
-						softRemoteScene.trigger(this, null, remoteValue);
+						this._softRemoteScene.trigger(this, null, remoteValue);
 						debounce = true;
 					}
 
@@ -118,31 +91,73 @@ class SoftRemote extends ZwaveDevice {
 
 				// Rest Scene activation
 				} else {
-						softRemoteScene.trigger(this, null, remoteValue);
-						softRemoteSceneToken.trigger(this, remoteValue, null);
+					this._softRemoteScene.trigger(this, null, remoteValue);
+					this._softRemoteSceneToken.trigger(this, remoteValue, null);
 				}
 			}
 		});
 
 		// Basic flow triggers
 		this.registerReportListener('BASIC', 'BASIC_SET', report => {
-			if (typeof report.Value === 'number') {
-				if (report.Value > 0) softRemoteNonScene.trigger(this, null, { value: 'on' });
-				else softRemoteNonScene.trigger(this, null, { value: 'off' });
+			if (report.Value !== undefined) {
+				if (report.Value > 0) this._softRemoteNonScene.trigger(this, null, { value: 'on' });
+				else this._softRemoteNonScene.trigger(this, null, { value: 'off' });
 			}
 		});
 
 		// Multilevel Switch flow triggers
 		this.registerReportListener('SWITCH_MULTILEVEL', 'SWITCH_MULTILEVEL_START_LEVEL_CHANGE', report => {
-			if (report.hasOwnProperty('Level') && typeof report.Level['Up/ Down'] === 'boolean') {
-				if (report.Level['Up/ Down']) softRemoteNonScene.trigger(this, null, { value: 'down' });
-				else softRemoteNonScene.trigger(this, null, { value: 'up' });
+			if (
+				report['Level'] !== undefined
+				&& report.Level['Up/ Down'] !== undefined
+			) {
+				if (report.Level['Up/ Down']) this._softRemoteNonScene.trigger(this, null, { value: 'down' });
+				else this._softRemoteNonScene.trigger(this, null, { value: 'up' });
 			}
 		});
 
 		this.registerReportListener('SWITCH_MULTILEVEL', 'SWITCH_MULTILEVEL_STOP_LEVEL_CHANGE', report => {
-			softRemoteNonScene.trigger(this, null, { value: 'stop' });
+			this._softRemoteNonScene.trigger(this, null, { value: 'stop' });
 		});
+	}
+
+	// Flows Run Listeners
+	async softRemoteSceneRunListener(args, state) {
+		if (
+			args.button !== undefined
+			&& args.scene !== undefined
+			&& state.button !== undefined
+			&& state.scene !== undefined
+		) {
+			return (args.button === state.button && args.scene === state.scene);
+		}
+		return false;
+	}
+
+	async softRemoteNonSceneRunListener(args, state) {
+		if (
+			args.value !== undefined
+			&& state.value !== undefined
+		) {
+			return (args.value === state.value);
+		}
+		return false;
+	}
+
+	async sequenceRunListener(args, state) {
+		if (
+			args.sequence !== undefined
+			&& state.sequence !== undefined
+		) {
+			const userSequence = args.sequence.split(/[ ,;]+/).map(Number);
+			let countSameButton = 0;
+
+			for (let i = 0; i < userSequence.length; i++) {
+				if (userSequence[i] === state.sequence[i]) countSameButton++;
+			}
+			return (countSameButton === userSequence.length);
+		}
+		return false;
 	}
 }
 

@@ -73,8 +73,8 @@
 						{
 							"id": "Key Held Down",
 							"label": {
-								"en": "Held down (5x per second)",
-								"nl": "Ingehouden (5x per seconde)"
+								"en": "Held down (every second)",
+								"nl": "Ingehouden (elke seconde)"
 							}
 						},
 						{

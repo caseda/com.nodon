@@ -1,12 +1,13 @@
 {
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.nodon",
   "name": {
     "en": "NodOn"
   },
-  "sdk": 2,
-  "brandColor": "#f06c1a",
-  "version": "2.1.0",
-  "compatibility": ">=3.0.0",
+  "sdk": 3,
+  "brandColor": "#f58220",
+  "version": "3.0.0",
+  "compatibility": ">=5.0.0",
   "description": {
     "en": "NodOn Z-Wave devices for Homey",
     "nl": "NodOn Z-Wave apparaten voor Homey"
@@ -174,8 +175,8 @@
               {
                 "id": "Key Held Down",
                 "label": {
-                  "en": "Held down (5x per second)",
-                  "nl": "Ingehouden (5x per seconde)"
+                  "en": "Held down (every second)",
+                  "nl": "Ingehouden (elke seconde)"
                 }
               },
               {
@@ -362,8 +363,8 @@
               {
                 "id": "Key Held Down",
                 "label": {
-                  "en": "Held down (5x per second)",
-                  "nl": "Ingehouden (5x per seconde)"
+                  "en": "Held down (every second)",
+                  "nl": "Ingehouden (elke seconde)"
                 }
               },
               {
@@ -514,8 +515,8 @@
               {
                 "id": "Key Held Down",
                 "label": {
-                  "en": "Held down (5x per second)",
-                  "nl": "Ingehouden (5x per seconde)"
+                  "en": "Held down (every second)",
+                  "nl": "Ingehouden (elke seconde)"
                 }
               },
               {
@@ -593,12 +594,12 @@
       {
         "id": "resetMeter",
         "title": {
-          "en": "Reset meter values",
-          "nl": "Meter waarden opnieuw instellen"
+          "en": "Reset power meter",
+          "nl": "Reset stroommeter"
         },
         "hint": {
-          "en": "Reset the accumulated power usage value (kWh), note that this can not be reversed.",
-          "nl": "Stel geaccumuleerde stroomverbruik waarde (kWh) opnieuw in, dit kan niet worden teruggedraaid."
+          "en": "Reset the accumulated power usage value (kWh), this can not be reversed!",
+          "nl": "Reset het geaccumuleerde stroomverbruik (kWh), dit kan niet ongedaan worden gemaakt!"
         },
         "args": [
           {
@@ -691,8 +692,22 @@
       "capabilities": [
         "onoff",
         "measure_power",
-        "meter_power"
+        "meter_power",
+        "button.reset_meter"
       ],
+      "capabilitiesOptions": {
+        "button.reset_meter": {
+          "maintenanceAction": true,
+          "title": {
+            "en": "Reset power meter",
+            "nl": "Reset stroommeter"
+          },
+          "desc": {
+            "en": "Reset the accumulated power usage (kWh), this can not be reversed!",
+            "nl": "Reset het geaccumuleerde stroomverbruik (kWh), dit kan niet ongedaan worden gemaakt!"
+          }
+        }
+      },
       "images": {
         "large": "/drivers/micro_smart_plug/assets/images/large.png",
         "small": "/drivers/micro_smart_plug/assets/images/small.png"
@@ -818,6 +833,9 @@
             "nl": "Hoeveel procent moet de wattage veranderen vergeleken met de laatste raport, voor het wordt verzonden.\n\nStandaard: 50%"
           },
           "value": 50,
+          "units": {
+            "en": "Watt"
+          },
           "attr": {
             "min": 0,
             "max": 100
@@ -839,6 +857,9 @@
             "nl": "Bepaal boven welke wattage de mini tussenstekker uit moet zetten.\n\nUit: 0\nStandaard: 2000 Watt"
           },
           "value": 2000,
+          "units": {
+            "en": "Watt"
+          },
           "attr": {
             "min": 0,
             "max": 2000
@@ -861,6 +882,9 @@
             "nl": "Bepaal hoeveel de kWh moet veranderen voor het wordt verzonden.\n\nUit: 0\nStandaard: 0.1 kWh"
           },
           "value": 0.1,
+          "units": {
+            "en": "kWh"
+          },
           "attr": {
             "min": 0,
             "max": 65.53,
@@ -884,6 +908,10 @@
             "nl": "Welk interval (in seconden) worden alle meter waardes (Wattage en KiloWattUur) verzonden.\n\nUit: 0\nStandaard: 1800 seconden"
           },
           "value": 1800,
+          "units": {
+            "en": "Seconds",
+            "nl": "Seconden"
+          },
           "attr": {
             "min": 0,
             "max": 65535
@@ -906,6 +934,9 @@
             "nl": "Onder welke wattage waarde word de \"laag\" assoctiatie groep (5) getriggerd.\n\nUit: 0\nStandaard: 5 Watt"
           },
           "value": 5,
+          "units": {
+            "en": "Watt"
+          },
           "attr": {
             "min": 0,
             "max": 65535
@@ -928,6 +959,9 @@
             "nl": "Boven welke wattage waarde word de \"hoog\" assoctiatie groep (4) getriggerd.\n\nUit: 0\nStandaard: 20 Watt"
           },
           "value": 20,
+          "units": {
+            "en": "Watt"
+          },
           "attr": {
             "min": 0,
             "max": 65535
@@ -1091,10 +1125,9 @@
           }
         }
       },
-      "class": "sensor",
+      "class": "remote",
       "capabilities": [
-        "measure_battery",
-        "alarm_battery"
+        "measure_battery"
       ],
       "images": {
         "large": "/drivers/octan_remote/assets/images/large.png",
@@ -1253,6 +1286,10 @@
             "nl": "Bepaal hoeveel seconden je hebt tussen het drukken van knoppen voor een reeks, houd rekening met het signaal ontvangst tijd.\n\nStandaard: 2 seconden"
           },
           "value": 2,
+          "units": {
+            "en": "Seconds",
+            "nl": "Seconden"
+          },
           "attr": {
             "min": 0.1,
             "max": 5,
@@ -1625,7 +1662,7 @@
           }
         }
       },
-      "class": "sensor",
+      "class": "remote",
       "capabilities": [
         "measure_battery"
       ],
@@ -1786,6 +1823,10 @@
             "nl": "Bepaal hoeveel seconden je hebt tussen het drukken van knoppen voor een reeks, houd rekening met het signaal ontvangst tijd.\n\nStandaard: 2 seconden"
           },
           "value": 2,
+          "units": {
+            "en": "Seconds",
+            "nl": "Seconden"
+          },
           "attr": {
             "min": 0.1,
             "max": 5,
@@ -1870,7 +1911,7 @@
           }
         }
       },
-      "class": "sensor",
+      "class": "remote",
       "capabilities": [
         "measure_battery"
       ],
@@ -2031,6 +2072,10 @@
             "nl": "Bepaal hoeveel seconden je hebt tussen het drukken van knoppen voor een reeks, houd rekening met het signaal ontvangst tijd.\n\nStandaard: 2 seconden"
           },
           "value": 2,
+          "units": {
+            "en": "Seconds",
+            "nl": "Seconden"
+          },
           "attr": {
             "min": 0.1,
             "max": 5,

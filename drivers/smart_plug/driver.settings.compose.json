@@ -1,201 +1,201 @@
 [
-  {
-    "id": "save_state",
-    "type": "dropdown",
-    "zwave": {
-      "index": 1,
-      "size": 1
-    },
-    "label": {
-      "en": "Power Restored State",
-      "nl": "Stroom Hersteld Status"
-    },
-    "hint": {
-      "en": "In which state should the smart plug be in when power is restored.",
-      "nl": "Welke status moet de tussenstekker hebben wanneer de stroom word hersteld."
-    },
-    "value": "2",
-    "values": [
-      {
-        "id": "0",
-        "label": {
-          "en": "Off",
-          "nl": "Uit"
-        }
-      },
-      {
-        "id": "1",
-        "label": {
-          "en": "On",
-          "nl": "Aan"
-        }
-      },
-      {
-        "id": "2",
-        "label": {
-          "en": "Previous State",
-          "nl": "Vorige Status"
-        }
-      }
-    ]
-  },
-  {
-    "id": "always_on",
-    "type": "checkbox",
-    "zwave": {
-      "index": 4,
-      "size": 1
-    },
-    "label": {
-      "en": "Always On",
-      "nl": "Altijd Aan"
-    },
-    "hint": {
-      "en": "Should the smart plug always stay on?",
-      "nl": "Moet de tussenstekker altijd aan blijven?"
-    },
-    "value": false
-  },
-  {
-    "id": "led_indicator",
-    "type": "checkbox",
-    "label": {
-      "en": "LED Indicator",
-      "nl": "LED Indicator"
-    },
-    "hint": {
-      "en": "Determine if the LED indicates its current state.",
-      "nl": "Bepaal of de LED de huidige status aangeeft."
-    },
-    "value": true
-  },
-  {
-    "type": "group",
-    "label": {
-      "en": "Commands To Association Groups",
-      "nl": "Commandos Naar associatie Groepen"
-    },
-    "collapsed": true,
-    "children": [
-      {
-        "id": "enable_group_2",
-        "type": "checkbox",
-        "zwave": {
-          "index": 3,
-          "size": 1
-        },
-        "label": {
-          "en": "Group 2: Follow State",
-          "nl": "Groep 2: Volg Status"
-        },
-        "hint": {
-          "en": "Determine if the devices in association group 2 should follow the plug's state.",
-          "nl": "Bepaal of de apparaten in associatie groep 2 de tussenstekker zijn status volgen."
-        },
-        "value": true
-      },
-      {
-        "id": "enable_group_3",
-        "type": "checkbox",
-        "zwave": {
-          "index": 3,
-          "size": 1
-        },
-        "label": {
-          "en": "Group 3: Follow State Manual",
-          "nl": "Groep 3: Volg Status Handmatig"
-        },
-        "hint": {
-          "en": "Determine if the devices in association group 3 should follow the plug's state when switching manually.",
-          "nl": "Bepaal of de apparaten in associatie groep 3 de tussenstekker zijn status volgen bij het handmatig schakelen."
-        },
-        "value": true
-      },
-      {
-        "id": "power_failure_group_4",
-        "type": "checkbox",
-        "zwave": {
-          "index": 2,
-          "size": 1
-        },
-        "label": {
-          "en": "Group 4: Power Failure Notification",
-          "nl": "Groep 4: Stroomuitval notificatie"
-        },
-        "hint": {
-          "en": "Determine if a power failure notification is being send to association group 4.",
-          "nl": "Bepaal of een stroomuitval notificatie word verzonden naar associatie groep 4."
-        },
-        "value": false
-      },
-      {
-        "id": "power_failure_group_5",
-        "type": "checkbox",
-        "zwave": {
-          "index": 2,
-          "size": 1
-        },
-        "label": {
-          "en": "Group 5: On Command on Power Failure",
-          "nl": "Groep 5: Aan Commando bij Stroomuitval"
-        },
-        "hint": {
-          "en": "Determine if the \"on\" command is being send to association group 5 on power failure.",
-          "nl": "Bepaal of de \"aan\" commando word verzonden naar associatie groep 5 bij stroomuitval."
-        },
-        "value": false
-      },
-      {
-        "id": "power_failure_group_6",
-        "type": "checkbox",
-        "zwave": {
-          "index": 2,
-          "size": 1
-        },
-        "label": {
-          "en": "Group 6: Off Command on Power Failure",
-          "nl": "Groep 6: Uit Commando bij Stroomuitval"
-        },
-        "hint": {
-          "en": "Determine if the \"off\" command is being send to association group 6 on power failure.",
-          "nl": "Bepaal of de \"uit\" commando word verzonden naar associatie groep 6 bij stroomuitval."
-        },
-        "value": false
-      },
-      {
-        "id": "power_failure_group_7",
-        "type": "checkbox",
-        "zwave": {
-          "index": 2,
-          "size": 1
-        },
-        "label": {
-          "en": "Group 7: On Command on Power Resume",
-          "nl": "Groep 7: Aan Commando bij Hervatten Stroom"
-        },
-        "hint": {
-          "en": "Determine if the \"on\" command is being send to association group 7 when power gets recovered again.",
-          "nl": "Bepaal of de \"aan\" commando word verzonden naar associatie groep 7 als de stroom weer word hersteld."
-        },
-        "value": false
-      },
-      {
-        "id": "power_failure_group_8",
-        "type": "checkbox",
-        "zwave": {
-          "index": 2,
-          "size": 1
-        },
-        "label": {
-          "en": "Group 8: Off Command on Power Resume",
-          "nl": "Groep 8: Uit Commando bij Hervatten Stroom"
-        },
-        "hint": {
-          "en": "Determine if the \"off\" command is being send to association group 8 when power gets recovered again.",
-          "nl": "Bepaal of de \"uit\" commando word verzonden naar associatie groep 8 als de stroom weer word hersteld."
-        },
-        "value": false
-      }
-    ]
-  }
+	{
+		"id": "save_state",
+		"type": "dropdown",
+		"zwave": {
+			"index": 1,
+			"size": 1
+		},
+		"label": {
+			"en": "Power Restored State",
+			"nl": "Stroom Hersteld Status"
+		},
+		"hint": {
+			"en": "In which state should the smart plug be in when power is restored.",
+			"nl": "Welke status moet de tussenstekker hebben wanneer de stroom word hersteld."
+		},
+		"value": "2",
+		"values": [
+			{
+				"id": "0",
+				"label": {
+					"en": "Off",
+					"nl": "Uit"
+				}
+			},
+			{
+				"id": "1",
+				"label": {
+					"en": "On",
+					"nl": "Aan"
+				}
+			},
+			{
+				"id": "2",
+				"label": {
+					"en": "Previous State",
+					"nl": "Vorige Status"
+				}
+			}
+		]
+	},
+	{
+		"id": "always_on",
+		"type": "checkbox",
+		"zwave": {
+			"index": 4,
+			"size": 1
+		},
+		"label": {
+			"en": "Always On",
+			"nl": "Altijd Aan"
+		},
+		"hint": {
+			"en": "Should the smart plug always stay on?",
+			"nl": "Moet de tussenstekker altijd aan blijven?"
+		},
+		"value": false
+	},
+	{
+		"id": "led_indicator",
+		"type": "checkbox",
+		"label": {
+			"en": "LED Indicator",
+			"nl": "LED Indicator"
+		},
+		"hint": {
+			"en": "Determine if the LED indicates its current state.",
+			"nl": "Bepaal of de LED de huidige status aangeeft."
+		},
+		"value": true
+	},
+	{
+		"type": "group",
+		"label": {
+			"en": "Commands To Association Groups",
+			"nl": "Commandos Naar associatie Groepen"
+		},
+		"collapsed": true,
+		"children": [
+			{
+				"id": "enable_group_2",
+				"type": "checkbox",
+				"zwave": {
+					"index": 3,
+					"size": 1
+				},
+				"label": {
+					"en": "Group 2: Follow State",
+					"nl": "Groep 2: Volg Status"
+				},
+				"hint": {
+					"en": "Determine if the devices in association group 2 should follow the plug's state.",
+					"nl": "Bepaal of de apparaten in associatie groep 2 de tussenstekker zijn status volgen."
+				},
+				"value": true
+			},
+			{
+				"id": "enable_group_3",
+				"type": "checkbox",
+				"zwave": {
+					"index": 3,
+					"size": 1
+				},
+				"label": {
+					"en": "Group 3: Follow State Manual",
+					"nl": "Groep 3: Volg Status Handmatig"
+				},
+				"hint": {
+					"en": "Determine if the devices in association group 3 should follow the plug's state when switching manually.",
+					"nl": "Bepaal of de apparaten in associatie groep 3 de tussenstekker zijn status volgen bij het handmatig schakelen."
+				},
+				"value": true
+			},
+			{
+				"id": "power_failure_group_4",
+				"type": "checkbox",
+				"zwave": {
+					"index": 2,
+					"size": 1
+				},
+				"label": {
+					"en": "Group 4: Power Failure Notification",
+					"nl": "Groep 4: Stroomuitval notificatie"
+				},
+				"hint": {
+					"en": "Determine if a power failure notification is being send to association group 4.",
+					"nl": "Bepaal of een stroomuitval notificatie word verzonden naar associatie groep 4."
+				},
+				"value": false
+			},
+			{
+				"id": "power_failure_group_5",
+				"type": "checkbox",
+				"zwave": {
+					"index": 2,
+					"size": 1
+				},
+				"label": {
+					"en": "Group 5: On Command on Power Failure",
+					"nl": "Groep 5: Aan Commando bij Stroomuitval"
+				},
+				"hint": {
+					"en": "Determine if the \"on\" command is being send to association group 5 on power failure.",
+					"nl": "Bepaal of de \"aan\" commando word verzonden naar associatie groep 5 bij stroomuitval."
+				},
+				"value": false
+			},
+			{
+				"id": "power_failure_group_6",
+				"type": "checkbox",
+				"zwave": {
+					"index": 2,
+					"size": 1
+				},
+				"label": {
+					"en": "Group 6: Off Command on Power Failure",
+					"nl": "Groep 6: Uit Commando bij Stroomuitval"
+				},
+				"hint": {
+					"en": "Determine if the \"off\" command is being send to association group 6 on power failure.",
+					"nl": "Bepaal of de \"uit\" commando word verzonden naar associatie groep 6 bij stroomuitval."
+				},
+				"value": false
+			},
+			{
+				"id": "power_failure_group_7",
+				"type": "checkbox",
+				"zwave": {
+					"index": 2,
+					"size": 1
+				},
+				"label": {
+					"en": "Group 7: On Command on Power Resume",
+					"nl": "Groep 7: Aan Commando bij Hervatten Stroom"
+				},
+				"hint": {
+					"en": "Determine if the \"on\" command is being send to association group 7 when power gets recovered again.",
+					"nl": "Bepaal of de \"aan\" commando word verzonden naar associatie groep 7 als de stroom weer word hersteld."
+				},
+				"value": false
+			},
+			{
+				"id": "power_failure_group_8",
+				"type": "checkbox",
+				"zwave": {
+					"index": 2,
+					"size": 1
+				},
+				"label": {
+					"en": "Group 8: Off Command on Power Resume",
+					"nl": "Groep 8: Uit Commando bij Hervatten Stroom"
+				},
+				"hint": {
+					"en": "Determine if the \"off\" command is being send to association group 8 when power gets recovered again.",
+					"nl": "Bepaal of de \"uit\" commando word verzonden naar associatie groep 8 als de stroom weer word hersteld."
+				},
+				"value": false
+			}
+		]
+	}
 ]

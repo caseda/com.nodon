@@ -1,110 +1,84 @@
 'use strict';
 
-const Homey = require('homey');
-const ZwaveMeteringDevice = require('homey-meshdriver').ZwaveMeteringDevice;
+const {ZwaveDevice} = require('homey-zwavedriver');
 
-class MicroSmartPlug extends ZwaveMeteringDevice {
-	async onMeshInit() {
+class MicroSmartPlug extends ZwaveDevice {
+	async onNodeInit() {
 		//this.printNode();
 		//this.enableDebug();
 
-		// Capabilities
+		// Register Flows
+		this._resetMeterFlowAction = this.driver.microSmartPlugResetMeter;
+
+		// Register Capabilities
 		this.registerCapability('onoff', 'SWITCH_BINARY');
 		this.registerCapability('measure_power', 'METER');
 		this.registerCapability('meter_power', 'METER');
 
-		// Settings
-		this.registerSetting('led_indicator', value => {
-			sendIndicator(this, value)
-				.then(sendValue => {
-					this.log('led_indicator successfully send:', sendValue);
-				})
-				.catch(err => {
-					this.error('led_indicator failed');
-				});
+		if (this.hasCapability('button.meter_reset')) {
+			this.removeCapability('button.meter_reset');
+		}
+
+		if (!this.hasCapability('button.reset_meter')) {
+			this.addCapability('button.reset_meter');
+		}
+
+		this.registerCapabilityListener('button.reset_meter', async () => {
+			return await this.resetMeter();
 		});
 
+		// Register Settings
+		this.registerSetting('led_indicator', value => this._sendIndicator(value));
+
 		this.registerSetting('enable_group_2', value => {
-			value = (value) ? 1 : 0;
-			value += (this.getSetting('enable_group_3')) ? 2 : 0;
-			return value;
+			newValue = value | (this.getSetting('enable_group_3') << 1);
+			return Buffer.from([newValue]);
 		});
 
 		this.registerSetting('enable_group_3', value => {
-			value = (value) ? 2 : 0;
-			value += (this.getSetting('enable_group_2')) ? 1 : 0;
-			return value;
+			newValue = this.getSetting('enable_group_2') | (value << 1);
+			return Buffer.from([newValue]);
 		});
 
-		this.registerSetting('kwh_threshold', value => { return Math.round(value * 1000) });
+		this.registerSetting('kwh_threshold', value => Buffer.from([value * 1000]));
 
 		this.registerSetting('command_group_4', value => {
-			value = parseInt(value);
-			value += parseInt(this.getSetting('command_group_5'));
-			return value;
+			newValue = Number(value) + Number(this.getSetting('command_group_5'));
+			return Buffer.from([newValue]);
 		});
 
 		this.registerSetting('command_group_5', value => {
-			value = parseInt(value);
-			value += parseInt(this.getSetting('command_group_4'));
-			return value;
+			newValue = Number(value) + Number(this.getSetting('command_group_4'));
+			return Buffer.from([newValue]);
 		});
 
 		// Sync indicator status on boot up
-		await sendIndicator(this, this.getSetting('led_indicator'))
-			.then(sendValue => {
-				this.log('led_indicator succesfully synced:', sendValue);
-			})
-			.catch(err => {
-				this.error('led_indicator failed');
-			});
-
-		// Flows
-		let oldMeterResetAction = new Homey.FlowCardAction('micro_smart_plug_reset_meter');
-		oldMeterResetAction
-			.register();
-
-		oldMeterResetAction.registerRunListener(() => {
-			return Promise.reject('card_not_used_anymore_use_new_reset_card');
-		});
-
-		let resetMeterFlowAction = new Homey.FlowCardAction('resetMeter');
-		resetMeterFlowAction
-			.register();
-
-		let commandClassMeter = this.getCommandClass('METER');
-		if (!(commandClassMeter instanceof Error) && typeof commandClassMeter.METER_RESET === 'function') {
-
-			resetMeterFlowAction.registerRunListener(() => {
-				commandClassMeter.METER_RESET({}, (err, result) => {
-					if (err || result !== 'TRANSMIT_COMPLETE_OK') return Promise.reject(err || result);
-					return Promise.resolve();
-				});
-			});
-		}
+		this._sendIndicator(this.getSetting('led_indicator'));
 	}
-}
 
-function sendIndicator(device, value) {
-	return new Promise((resolve, reject) => {
-		const CC_Indicator = device.getCommandClass('INDICATOR');
+	async _sendIndicator(value) {
+		const CC_Indicator = this.getCommandClass('INDICATOR');
 
-		if (CC_Indicator instanceof Error) return reject('failed_to_get_indicator_command_class');
-		if (typeof CC_Indicator.INDICATOR_SET !== 'function') return reject('indicator_set_funcion_unavailable');
-
+		if (CC_Indicator instanceof Error) return Promise.reject('failed_to_get_indicator_command_class');
+		if (typeof CC_Indicator.INDICATOR_SET !== 'function') return Promise.reject('indicator_set_funcion_unavailable');
 		if (typeof value !== 'boolean') value = this.getSetting('led_indicator');
 
-		CC_Indicator.INDICATOR_SET({
+		await CC_Indicator.INDICATOR_SET({
 			"Value": value,
 		})
-		 	.catch(err => {
-				return reject(err);
-			})
-			.then(result => {
-				if (result !== 'TRANSMIT_COMPLETE_OK') return reject(result);
-				return resolve(value);
-			});
-	});
+		.catch(err => {
+			this.error(err);
+			return false;
+		})
+		.then(result => {
+			if (result !== 'TRANSMIT_COMPLETE_OK') return Promise.reject(result);
+			return true;
+		});
+	}
+
+	async microSmartPlugResetMeterRunListener(args) {
+		return await this.resetMeter();
+	}
 }
 
 module.exports = MicroSmartPlug;

@@ -78,8 +78,22 @@
 	"capabilities": [
 		"onoff",
 		"measure_power",
-		"meter_power"
+		"meter_power",
+		"button.reset_meter"
 	],
+	"capabilitiesOptions": {
+		"button.reset_meter": {
+			"maintenanceAction": true,
+			"title": {
+				"en": "Reset power meter",
+				"nl": "Reset stroommeter"
+			},
+			"desc": {
+				"en": "Reset the accumulated power usage (kWh), this can not be reversed!",
+				"nl": "Reset het geaccumuleerde stroomverbruik (kWh), dit kan niet ongedaan worden gemaakt!"
+			}
+		}
+	},
 	"images": {
 		"large": "/drivers/micro_smart_plug/assets/images/large.png",
 		"small": "/drivers/micro_smart_plug/assets/images/small.png"

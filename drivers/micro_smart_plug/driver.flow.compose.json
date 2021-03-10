@@ -3,12 +3,12 @@
 		{
 			"id": "resetMeter",
 			"title": {
-				"en": "Reset meter values",
-				"nl": "Meter waarden opnieuw instellen"
+				"en": "Reset power meter",
+				"nl": "Reset stroommeter"
 			},
 			"hint": {
-				"en": "Reset the accumulated power usage value (kWh), note that this can not be reversed.",
-				"nl": "Stel geaccumuleerde stroomverbruik waarde (kWh) opnieuw in, dit kan niet worden teruggedraaid."
+				"en": "Reset the accumulated power usage value (kWh), this can not be reversed!",
+				"nl": "Reset het geaccumuleerde stroomverbruik (kWh), dit kan niet ongedaan worden gemaakt!"
 			}
 		}
 	]

@@ -33,6 +33,10 @@
       }
     }
   },
+  "bugs": {
+    "url": "https://github.com/caseda/com.nodon/issues"
+  },
+  "source": "https://github.com/caseda/com.nodon",
   "homeyCommunityTopicId": 5554,
   "flow": {
     "triggers": [

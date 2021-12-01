@@ -4,6 +4,18 @@
 		"en": "Soft Remote",
 		"nl": "Soft Afstandsbediening"
 	},
+	"energy": {
+		"batteries": [
+			"CR2032"
+		]
+	},
+  "platforms": [
+    "local",
+    "cloud"
+  ],
+	"connectivity": [
+		"zwave"
+	],
 	"zwave": {
 		"manufacturerId": 357,
 		"productTypeId": 2,
@@ -69,7 +81,7 @@
 			}
 		}
 	},
-	"class": "sensor",
+	"class": "remote",
 	"capabilities": [
 		"measure_battery"
 	],

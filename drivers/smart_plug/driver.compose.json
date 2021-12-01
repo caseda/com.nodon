@@ -4,6 +4,13 @@
 		"en": "Smart Plug",
 		"nl": "Tussenstekker"
 	},
+  "platforms": [
+    "local",
+    "cloud"
+  ],
+	"connectivity": [
+		"zwave"
+	],
 	"zwave": {
 		"manufacturerId": 357,
 		"productTypeId": 1,

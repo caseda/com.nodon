@@ -33,6 +33,17 @@ Sequence's buttons can be separated by a comma ( , ) or a semicolon ( ; ).
 The buttons/switches themselves are in number, ranging from 1 to 4, going from left to right, top to bottom respectively.
 
 ### Change Log:
+**3.0.0:**
+- Rewrite to SDKv3 for Homey v5:
+- Additional changes:
+  + Changed the "hold" trigger to every second, instead of 5 times a second to keep Homey from disabling that flow card immediately
+  + Updated all icons to be more clear
+  + Added a Reset Meter maintenance action
+  + Updated all images to make them more consistent
+
+**2.1.0:**
+- Add battery types, for Homey v3's Energy
+
 **2.0.3:**
 - [Smart Plug] fix the app crashing when triggering on "power lost".
 - Fix all icons not showing in the app.

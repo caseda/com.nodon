@@ -4,6 +4,10 @@
 		"en": "Button sequence",
 		"nl": "Knoppen reeks"
 	},
+	"titleFormatted": {
+		"en": "Button sequence [[sequence]] used",
+		"nl": "Knoppen reeks [[sequence]] gebruikt"
+	},
 	"hint": {
 		"en": "Separate the buttons ( 1 - 4 ) of the sequence with a comma ( , ) or semicolon ( ; ), 2x the same button after each other is not possible.\n\nThis flow card will only trigger if the corresponding settings are in \"Scene Mode\".\nAnd the sequence setting activated.",
 		"nl": "Verdeel de Knoppen ( 1 - 4 ) van de reeks met een komma ( , ) of puntkomma ( ; ), 2x dezelfde knop achter elkaar is niet mogelijk.\n\nDeze flow kaart activeerd alleen als de overeenkomstig instellingen staat op \"Scene Modus\"\nEn de reeks setting geactiveerd."
@@ -16,6 +20,10 @@
 		},
 		{
 			"name": "sequence",
+			"title": {
+				"en": "Users sequence",
+				"nl": "Gebruiker's reeks"
+			},
 			"type": "text",
 			"placeholder": {
 				"en": "example sequence: 1, 2, 3",

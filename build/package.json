@@ -1,0 +1,20 @@
+{
+  "name": "com.nodon",
+  "version": "2.0.0",
+  "description": "This app adds support for NodOn Z-Wave devices in Homey",
+  "main": "app.js",
+  "dependencies": {
+    "homey-zwavedriver": "^2.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caseda/com.nodon"
+  },
+  "author": "R. Mengers",
+  "license": "ISC",
+  "homepage": "https://github.com/caseda/com.nodon#readme"
+}

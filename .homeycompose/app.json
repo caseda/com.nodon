@@ -5,36 +5,44 @@
   },
   "sdk": 3,
   "brandColor": "#f58220",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "compatibility": ">=5.0.0",
   "description": {
     "en": "NodOn Z-Wave devices for Homey",
     "nl": "NodOn Z-Wave apparaten voor Homey"
   },
+  "platforms": [
+    "local",
+    "cloud"
+  ],
   "category": [
     "appliances",
-    "lights",
-    "tools"
+    "lights"
   ],
   "images": {
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"
   },
   "author": {
-    "name": "R. Mengers",
-    "email": "caseda08@hotmail.com"
+    "name": "NodOn",
+    "email": "support@nodon.fr"
   },
-  "contributing": {
-    "donate": {
-      "paypal": {
-        "username": "caseda",
-        "currency": "EUR"
+  "contributors": {
+    "developers": [
+      {
+        "name": "Remco Mengers",
+        "email": "caseda08@hotmail.com"
       }
-    }
+    ]
   },
+  "tags": {
+    "en": [],
+    "nl": []
+  },
+  "homepage": "https://www.nodon.fr/",
   "bugs": {
-    "url": "https://github.com/caseda/com.nodon/issues"
+    "url": "https://www.nodon.fr/contact/"
   },
-  "source": "https://github.com/caseda/com.nodon",
+  "support": "https://www.nodon.fr/contact/",
   "homeyCommunityTopicId": 5554
 }

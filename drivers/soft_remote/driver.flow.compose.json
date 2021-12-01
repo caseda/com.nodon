@@ -6,6 +6,10 @@
 				"en": "Scene activation",
 				"nl": "Scene activatie"
 			},
+			"titleFormatted": {
+				"en": "Scene [[button]] is [[scene]]",
+				"nl": "Scene [[button]] is [[scene]]"
+			},
 			"hint": {
 				"en": "This flow card will only trigger if the corresponding button settings are in \"Scene Mode\"",
 				"nl": "Deze flow kaart activeerd alleen als de overeenkomstig knop instellingen staat op \"Scene Modus\""
@@ -13,6 +17,10 @@
 			"args": [
 				{
 					"name": "button",
+					"title": {
+						"en": "Button",
+						"nl": "Knop"
+					},
 					"type": "dropdown",
 					"values": [
 						{
@@ -48,6 +56,10 @@
 				{
 					"name": "scene",
 					"type": "dropdown",
+					"title": {
+						"en": "Pressed ...x",
+						"nl": "...x Gedrukt"
+					},
 					"values": [
 						{
 							"id": "Key Pressed 1 time",
@@ -94,6 +106,10 @@
 				"en": "Single/dual button mode",
 				"nl": "Enkele/dubbele knop modus"
 			},
+			"titleFormatted": {
+				"en": "Remote [[value]]",
+				"nl": "Afstandsbediening [[value]]"
+			},
 			"hint": {
 				"en": "This flow card will only trigger if the remote's settings are in \"Single Button Mode\" or \"Dual Button Mode\", triggers on all buttons that are in these modes",
 				"nl": "Deze flow kaart activeerd alleen als de Afstandbediening zijn instellingen staan op \"Enkele Knop Modus\" of \"Dubbele Knop Modus\", activeerd bij alle knoppen die in deze modus zijn"
@@ -102,6 +118,10 @@
 				{
 					"name": "value",
 					"type": "dropdown",
+					"title": {
+						"en": "Turned .../Started dimming ...",
+						"nl": "...gezet/Gestart ... te dimmen"
+					},
 					"values": [
 						{
 							"id": "on",

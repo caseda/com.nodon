@@ -6,6 +6,10 @@
 				"en": "Scene activation",
 				"nl": "Scene activatie"
 			},
+			"titleFormatted": {
+				"en": "Scene [[button]] is [[scene]]",
+				"nl": "Scene [[button]] is [[scene]]"
+			},
 			"hint": {
 				"en": "This flow card will only trigger if the corresponding button settings are in \"Scene Mode\"",
 				"nl": "Deze flow kaart activeerd alleen als de overeenkomstig knop instellingen staat op \"Scene Modus\""
@@ -13,6 +17,10 @@
 			"args": [
 				{
 					"name": "button",
+					"title": {
+						"en": "Button",
+						"nl": "Knop"
+					},
 					"type": "dropdown",
 					"values": [
 						{
@@ -47,6 +55,10 @@
 				},
 				{
 					"name": "scene",
+					"title": {
+						"en": "Pressed ...x",
+						"nl": "...x Gedrukt"
+					},
 					"type": "dropdown",
 					"values": [
 						{
@@ -94,6 +106,10 @@
 				"en": "Single/dual button mode",
 				"nl": "Enkele/dubbele knop modus"
 			},
+			"titleFormatted": {
+				"en": "Remote [[value]]",
+				"nl": "Afstandsbediening [[value]]"
+			},
 			"hint": {
 				"en": "This flow card will only trigger if the remote's settings are in \"Single Button Mode\" or \"Dual Button Mode\", triggers on all buttons that are in these modes",
 				"nl": "Deze flow kaart activeerd alleen als de afstandbediening zijn instellingen staan op \"Enkele Knop Modus\" of \"Dubbele Knop Modus\", activeerd bij alle knoppen die in deze modus zijn"
@@ -102,40 +118,44 @@
 				{
 					"name": "value",
 					"type": "dropdown",
+					"title": {
+						"en": "Turned .../Started dimming ...",
+						"nl": "...gezet/Gestart ... te dimmen"
+					},
 					"values": [
 						{
 							"id": "on",
 							"label": {
-								"en": "On",
-								"nl": "Aan"
+								"en": "Turned on",
+								"nl": "Aangezet"
 							}
 						},
 						{
 							"id": "off",
 							"label": {
-								"en": "Off",
-								"nl": "Uit"
+								"en": "Turned off",
+								"nl": "Uitgezet"
 							}
 						},
 						{
 							"id": "up",
 							"label": {
-								"en": "Start dimming up",
-								"nl": "Start omhoog dimmen"
+								"en": "Started dimming up",
+								"nl": "Gestart omhoog te dimmen"
 							}
 						},
 						{
 							"id": "down",
 							"label": {
-								"en": "Start dimming down",
-								"nl": "Start omlaag dimmen"
+								"en": "Started dimming down",
+								"nl": "Gestart omlaag te dimmen"
 							}
 						},
 						{
 							"id": "stop",
 							"label": {
-								"en": "Stop dimming",
-								"nl": "Stop dimmen"
+								"en": "Stopped dimming",
+								"nl": "Gestopt met dimmen"
 							}
 						}
 					]

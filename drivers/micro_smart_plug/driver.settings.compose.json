@@ -120,7 +120,7 @@
 		},
 		"value": 50,
 		"units": {
-			"en": "Watt"
+			"en": "%"
 		},
 		"attr": {
 			"min": 0,

@@ -4,6 +4,13 @@
 		"en": "Micro Smart Plug",
 		"nl": "Mini Tussenstekker"
 	},
+  "platforms": [
+    "local",
+    "cloud"
+  ],
+	"connectivity": [
+		"zwave"
+	],
 	"zwave": {
 		"manufacturerId": 357,
 		"productTypeId": 1,

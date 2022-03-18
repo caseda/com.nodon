@@ -4,5 +4,8 @@
   },
   "3.0.1": {
     "en": "Re-write SDKv3; Fix smart plug image; Add links"
+  },
+  "3.0.2": {
+    "en": "Update the app for transfering to NodOn"
   }
 }

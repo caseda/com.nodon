@@ -56,7 +56,7 @@ class OctanRemote extends ZwaveDevice {
 					sequenceTimeout = setTimeout(() => {
 						if (sequence.length === 1) {
 							this._octanRemoteScene.trigger(this, null, remoteValue).catch(this.error);
-							this._octanRemoteSceneToken.trigger(this, remoteValue, null);.catch(this.error)
+							this._octanRemoteSceneToken.trigger(this, remoteValue, null).catch(this.error)
 
 						} else this._octanRemoteSequence.trigger(this, null, { sequence: sequence }).catch(this.error);
 

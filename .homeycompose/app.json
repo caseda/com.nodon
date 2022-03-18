@@ -5,7 +5,7 @@
   },
   "sdk": 3,
   "brandColor": "#f58220",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "compatibility": ">=5.0.0",
   "description": {
     "en": "NodOn Z-Wave devices for Homey",

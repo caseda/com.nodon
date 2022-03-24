@@ -17,7 +17,7 @@ class OctanRemote extends ZwaveDevice {
 		this.registerCapability('measure_battery', 'BATTERY');
 
 		if (this.hasCapability('alarm_battery')) {
-			this.removeCapability('alarm_battery').catch(this.error);
+			await this.removeCapability('alarm_battery').catch(this.error);
 		}
 
 		// Central Scene flow triggers

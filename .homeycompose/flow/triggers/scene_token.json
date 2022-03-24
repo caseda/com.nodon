@@ -18,6 +18,7 @@
 	"tokens": [
 		{
 			"name": "button",
+			"type": "string",
 			"title": {
 				"en": "button",
 				"nl": "knop"
@@ -26,6 +27,7 @@
 		},
 		{
 			"name": "scene",
+			"type": "string",
 			"title": {
 				"en": "scene"
 			},

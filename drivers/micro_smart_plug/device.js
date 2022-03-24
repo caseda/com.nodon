@@ -16,11 +16,11 @@ class MicroSmartPlug extends ZwaveDevice {
 		this.registerCapability('meter_power', 'METER');
 
 		if (this.hasCapability('button.meter_reset')) {
-			this.removeCapability('button.meter_reset').catch(this.error);
+			await this.removeCapability('button.meter_reset').catch(this.error);
 		}
 
 		if (!this.hasCapability('button.reset_meter')) {
-			this.addCapability('button.reset_meter').catch(this.error);
+			await this.addCapability('button.reset_meter').catch(this.error);
 		}
 
 		this.registerCapabilityListener('button.reset_meter', async () => {

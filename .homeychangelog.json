@@ -6,6 +6,6 @@
     "en": "Re-write SDKv3; Fix smart plug image; Add links"
   },
   "3.0.2": {
-    "en": "Update the app for transfering to NodOn"
+    "en": "Several changes for Homey v7.4, and preperations for transfering to NodOn themselves."
   }
 }
